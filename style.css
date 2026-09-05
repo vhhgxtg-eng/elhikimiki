@@ -29,9 +29,7 @@ body {
 }
 
 
-/* =========================
-   البراويز
-========================= */
+/* البراويز */
 
 .wall-gallery {
   position: fixed;
@@ -72,14 +70,11 @@ body {
 }
 
 
-/* =========================
-   اللابتوب
-========================= */
+/* الصفحة الرئيسية - لابتوب */
 
 .hero {
   position: relative;
   z-index: 2;
-
   min-height: 100vh;
 
   display: flex;
@@ -89,12 +84,11 @@ body {
   justify-content: center;
 
   gap: 25px;
-
   padding: 40px;
 }
 
 
-/* الكارت */
+/* البوكس */
 
 .content {
   position: relative;
@@ -161,7 +155,7 @@ button:hover {
 }
 
 
-/* الست على اللابتوب */
+/* الست - لابتوب */
 
 .content .woman {
   position: absolute;
@@ -181,7 +175,7 @@ button:hover {
 }
 
 
-/* الراجل على اللابتوب */
+/* الراجل - لابتوب */
 
 .character {
   position: relative;
@@ -189,20 +183,22 @@ button:hover {
   flex: 0 0 240px;
 
   align-self: flex-end;
-
   margin-bottom: -25px;
 }
 
 .character .man {
+  position: relative;
+  z-index: 2;
+
   display: block;
 
   width: 240px;
+  max-width: 240px;
+  height: auto;
+
   max-height: 65vh;
 
   object-fit: contain;
-
-  position: relative;
-  z-index: 2;
 }
 
 
@@ -224,6 +220,7 @@ button:hover {
   background: rgba(45, 25, 15, 0.28);
 
   border-radius: 50%;
+
   filter: blur(8px);
 
   z-index: 1;
@@ -238,7 +235,7 @@ button:hover {
 
   body {
     background-position: center top;
-    background-size: auto 100%;
+    background-size: cover;
   }
 
   .wall-gallery {
@@ -248,17 +245,20 @@ button:hover {
   .hero {
     min-height: 100vh;
 
-    display: block;
+    display: flex;
+    flex-direction: column;
 
-    padding: 28px 16px 320px;
+    align-items: center;
+    justify-content: flex-start;
+
+    gap: 22px;
+
+    padding: 28px 14px 35px;
   }
-
-
-  /* الكارت */
 
   .content {
     width: 100%;
-    max-width: none;
+    max-width: 100%;
 
     padding: 28px 18px 30px;
 
@@ -273,8 +273,8 @@ button:hover {
   }
 
   h1 {
-    font-size: 39px;
-    line-height: 1.2;
+    font-size: 40px;
+    line-height: 1.15;
     margin: 8px 0 12px;
   }
 
@@ -288,7 +288,7 @@ button:hover {
 
     margin-top: 22px;
 
-    padding: 14px 15px;
+    padding: 14px 18px;
 
     font-size: 19px;
 
@@ -296,63 +296,59 @@ button:hover {
   }
 
 
-  /* الست تحت الكارت ناحية الشمال */
+  /* الست على الموبايل */
 
   .content .woman {
-    position: absolute;
+    position: static;
 
-    width: 145px;
+    display: block;
+
+    width: 130px;
     height: auto;
 
-    left: 30%;
-    top: calc(100% + 32px);
+    transform: none;
 
-    transform: translateX(-50%);
+    margin: 30px auto 0;
 
-    margin: 0;
-
-    z-index: 4;
+    object-fit: contain;
   }
 
 
-  /* الراجل تحت الكارت ناحية اليمين */
+  /* الراجل على الموبايل */
 
   .character {
-    position: absolute;
+    position: static;
 
-    width: 165px;
+    flex: none;
 
-    right: 12%;
-    top: 390px;
+    width: 150px;
 
-    margin: 0;
+    margin: 0 auto;
   }
 
   .character .man {
-    width: 165px;
+    display: block;
+
+    width: 150px;
+    max-width: 150px;
+
     height: auto;
-    max-height: none;
+
+    margin: 0 auto;
   }
 
   .character::after {
-    width: 120px;
-    height: 20px;
-
-    bottom: 0;
-
-    filter: blur(6px);
+    display: none;
   }
 }
 
 
-/* =========================
-   موبايل صغير
-========================= */
+/* موبايل صغير */
 
 @media (max-width: 480px) {
 
   .hero {
-    padding: 24px 12px 300px;
+    padding: 24px 12px 30px;
   }
 
   .content {
@@ -376,20 +372,16 @@ button:hover {
   }
 
   .content .woman {
-    width: 125px;
-
-    left: 28%;
-    top: calc(100% + 28px);
+    width: 115px;
+    margin-top: 25px;
   }
 
   .character {
-    width: 145px;
-
-    right: 8%;
-    top: 365px;
+    width: 135px;
   }
 
   .character .man {
-    width: 145px;
+    width: 135px;
+    max-width: 135px;
   }
 }
