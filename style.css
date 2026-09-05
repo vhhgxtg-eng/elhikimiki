@@ -170,11 +170,11 @@ button:hover {
 .character .woman {
   position: absolute;
 
-  width: 145px;
+  width: 220px;
   height: auto;
 
-  right: -105px;
-  bottom: 0;
+  right: -150px;
+  bottom: -5px;
 
   z-index: 3;
 
