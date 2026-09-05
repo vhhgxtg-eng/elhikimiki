@@ -12,8 +12,10 @@ body {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+
   font-family: Tahoma, Arial, sans-serif;
   color: #2f1b13;
+
   background-color: #b87935;
 
   background-image:
@@ -29,7 +31,9 @@ body {
 }
 
 
-/* البراويز */
+/* =========================
+   البراويز
+========================= */
 
 .wall-gallery {
   position: fixed;
@@ -42,9 +46,11 @@ body {
   position: absolute;
   display: block;
   object-fit: cover;
+
   border: 7px solid #4b2918;
   outline: 3px solid #1f110c;
   border-radius: 4px;
+
   box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
 }
 
@@ -70,11 +76,14 @@ body {
 }
 
 
-/* الصفحة الرئيسية */
+/* =========================
+   الصفحة الرئيسية
+========================= */
 
 .hero {
   position: relative;
   z-index: 2;
+
   min-height: 100vh;
 
   display: flex;
@@ -84,11 +93,14 @@ body {
   justify-content: center;
 
   gap: 25px;
-  padding: 40px;
+
+  padding: 40px 40px 210px;
 }
 
 
-/* البوكس */
+/* =========================
+   البوكس
+========================= */
 
 .content {
   position: relative;
@@ -111,28 +123,36 @@ body {
 
 .welcome {
   margin: 0;
+
   font-size: 25px;
   font-weight: bold;
 }
 
 h1 {
   margin: 5px 0 10px;
+
   color: #b5281c;
+
   font-size: 65px;
+
   text-shadow: 3px 3px 0 #f2b35d;
 }
 
 .description {
   margin: 0;
+
   font-size: 24px;
   font-weight: bold;
 }
 
 
-/* زر ابدأ التعارف */
+/* =========================
+   زر ابدأ التعارف
+========================= */
 
 button {
   margin-top: 25px;
+
   padding: 15px 32px;
 
   color: white;
@@ -147,6 +167,10 @@ button {
   font-weight: bold;
 
   cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 button:hover {
@@ -155,44 +179,90 @@ button:hover {
 }
 
 
-/* الست
-   تحت زر ابدأ التعارف
-   لكن برا البوكس */
+/* =========================
+   الست
+   تحت البوكس وتحت الزر
+========================= */
 
 .content .woman {
   position: absolute;
 
-  width: 230px;
-  height: auto;
+  width: 180px !important;
+  max-width: 180px !important;
+  height: auto !important;
 
   left: 50%;
-  transform: translateX(-50%);
+  right: auto;
 
-  top: calc(100% + 15px);
+  top: calc(100% + 20px);
+  bottom: auto;
+
+  transform: translateX(-50%);
 
   z-index: 5;
 
   object-fit: contain;
+
   pointer-events: none;
 }
 
 
-/* الراجل */
+/* =========================
+   ظل الست على الأرض
+========================= */
+
+.content::after {
+  content: "";
+
+  position: absolute;
+
+  width: 145px;
+  height: 24px;
+
+  left: 50%;
+
+  top: calc(100% + 178px);
+
+  transform: translateX(-50%);
+
+  background: rgba(45, 25, 15, 0.28);
+
+  border-radius: 50%;
+
+  filter: blur(8px);
+
+  z-index: 4;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   الراجل
+========================= */
 
 .character {
   position: relative;
+
   flex: 0 0 240px;
+
   align-self: flex-end;
+
   margin-bottom: -25px;
+
+  overflow: visible;
 }
 
 .character .man {
   position: relative;
+
   z-index: 2;
 
   display: block;
 
   width: 240px;
+  max-width: 240px;
+
   height: auto;
 
   max-height: 65vh;
@@ -201,7 +271,38 @@ button:hover {
 }
 
 
-/* شاشات متوسطة */
+/* =========================
+   ظل الراجل
+========================= */
+
+.character::after {
+  content: "";
+
+  position: absolute;
+
+  width: 180px;
+  height: 30px;
+
+  left: 50%;
+  bottom: 3px;
+
+  transform: translateX(-50%);
+
+  background: rgba(45, 25, 15, 0.30);
+
+  border-radius: 50%;
+
+  filter: blur(9px);
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================
+   الشاشات المتوسطة
+========================= */
 
 @media (max-width: 1000px) {
 
@@ -226,19 +327,20 @@ button:hover {
     width: 130px;
   }
 
-  .content .woman {
-    width: 200px;
-  }
 }
 
 
-/* الموبايل */
+/* =========================
+   التابلت
+========================= */
 
 @media (max-width: 800px) {
 
   .hero {
     flex-direction: column;
-    gap: 10px;
+
+    gap: 20px;
+
     padding: 40px 20px 220px;
   }
 
@@ -251,26 +353,47 @@ button:hover {
   }
 
   .content .woman {
-    width: 170px;
+    width: 160px !important;
+    max-width: 160px !important;
+
     top: calc(100% + 15px);
   }
 
+  .content::after {
+    width: 130px;
+    top: calc(100% + 155px);
+  }
+
   .character {
-    width: 210px;
     flex-basis: auto;
+
+    width: 210px;
+
     align-self: center;
+
     margin-bottom: 0;
   }
 
   .character .man {
     width: 210px;
+    max-width: 210px;
   }
+
 }
+
+
+/* =========================
+   الموبايل
+========================= */
 
 @media (max-width: 600px) {
 
   .wall-gallery {
     display: none;
+  }
+
+  .hero {
+    padding-bottom: 190px;
   }
 
   h1 {
@@ -286,7 +409,16 @@ button:hover {
   }
 
   .content .woman {
-    width: 150px;
+    width: 140px !important;
+    max-width: 140px !important;
+
+    top: calc(100% + 15px);
+  }
+
+  .content::after {
+    width: 110px;
+
+    top: calc(100% + 138px);
   }
 
   .character {
@@ -295,5 +427,7 @@ button:hover {
 
   .character .man {
     width: 180px;
+    max-width: 180px;
   }
+
 }
