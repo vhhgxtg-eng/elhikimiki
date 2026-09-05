@@ -19,7 +19,7 @@ body {
   background-image:
     linear-gradient(
       rgba(45, 22, 10, 0.08),
-      rgba(45, 22, 10, 0.2)
+      rgba(45, 22, 10, 0.20)
     ),
     url("images/ahwa-background.png");
 
@@ -29,7 +29,7 @@ body {
 }
 
 
-/* WALL SIGNS */
+/* البراويز */
 
 .wall-gallery {
   position: fixed;
@@ -42,11 +42,9 @@ body {
   position: absolute;
   display: block;
   object-fit: cover;
-
   border: 7px solid #4b2918;
   outline: 3px solid #1f110c;
   border-radius: 4px;
-
   box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
 }
 
@@ -72,12 +70,11 @@ body {
 }
 
 
-/* MAIN AREA */
+/* الصفحة الرئيسية */
 
 .hero {
   position: relative;
   z-index: 2;
-
   min-height: 100vh;
 
   display: flex;
@@ -91,7 +88,7 @@ body {
 }
 
 
-/* MAIN CARD */
+/* البوكس */
 
 .content {
   position: relative;
@@ -120,27 +117,22 @@ body {
 
 h1 {
   margin: 5px 0 10px;
-
   color: #b5281c;
-
   font-size: 65px;
-
   text-shadow: 3px 3px 0 #f2b35d;
 }
 
 .description {
   margin: 0;
-
   font-size: 24px;
   font-weight: bold;
 }
 
 
-/* BUTTON */
+/* زر ابدأ التعارف */
 
 button {
   margin-top: 25px;
-
   padding: 15px 32px;
 
   color: white;
@@ -155,10 +147,6 @@ button {
   font-weight: bold;
 
   cursor: pointer;
-
-  transition:
-    transform 0.2s ease,
-    background 0.2s ease;
 }
 
 button:hover {
@@ -167,26 +155,39 @@ button:hover {
 }
 
 
-/* MAN + WOMAN AREA */
+/* الست
+   تحت زر ابدأ التعارف
+   لكن برا البوكس */
 
-.character {
-  position: relative;
+.content .woman {
+  position: absolute;
 
-  flex: 0 0 240px;
+  width: 230px;
+  height: auto;
 
-  align-self: flex-end;
+  left: 50%;
+  transform: translateX(-50%);
 
-  margin-bottom: -25px;
+  top: calc(100% + 15px);
 
-  overflow: visible;
+  z-index: 5;
+
+  object-fit: contain;
+  pointer-events: none;
 }
 
 
-/* MAN */
+/* الراجل */
+
+.character {
+  position: relative;
+  flex: 0 0 240px;
+  align-self: flex-end;
+  margin-bottom: -25px;
+}
 
 .character .man {
   position: relative;
-
   z-index: 2;
 
   display: block;
@@ -200,27 +201,7 @@ button:hover {
 }
 
 
-/* WOMAN
-   تحت زر ابدأ التعارف */
-
-.character .woman {
-  position: fixed;
-
-  z-index: 3;
-
-  width: 240px;
-  height: auto;
-
-  left: calc(50% - 330px);
-  bottom: 0;
-
-  object-fit: contain;
-
-  pointer-events: none;
-}
-
-
-/* MEDIUM SCREENS */
+/* شاشات متوسطة */
 
 @media (max-width: 1000px) {
 
@@ -245,24 +226,20 @@ button:hover {
     width: 130px;
   }
 
-  .character .woman {
+  .content .woman {
     width: 200px;
-    left: 22%;
-    bottom: 0;
   }
 }
 
 
-/* TABLET */
+/* الموبايل */
 
 @media (max-width: 800px) {
 
   .hero {
     flex-direction: column;
-
     gap: 10px;
-
-    padding: 40px 20px 0;
+    padding: 40px 20px 220px;
   }
 
   .content {
@@ -273,32 +250,22 @@ button:hover {
     font-size: 44px;
   }
 
+  .content .woman {
+    width: 170px;
+    top: calc(100% + 15px);
+  }
+
   .character {
-    flex-basis: auto;
-
     width: 210px;
-
+    flex-basis: auto;
     align-self: center;
-
     margin-bottom: 0;
   }
 
   .character .man {
     width: 210px;
   }
-
-  .character .woman {
-    position: absolute;
-
-    width: 160px;
-
-    left: -170px;
-    bottom: 0;
-  }
 }
-
-
-/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -318,20 +285,15 @@ button:hover {
     width: 100%;
   }
 
+  .content .woman {
+    width: 150px;
+  }
+
   .character {
     width: 180px;
   }
 
   .character .man {
     width: 180px;
-  }
-
-  .character .woman {
-    position: absolute;
-
-    width: 130px;
-
-    left: -120px;
-    bottom: 0;
   }
 }
