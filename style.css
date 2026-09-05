@@ -12,10 +12,8 @@ body {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-
   font-family: Tahoma, Arial, sans-serif;
   color: #2f1b13;
-
   background-color: #b87935;
 
   background-image:
@@ -31,9 +29,7 @@ body {
 }
 
 
-/* =========================
-   WALL SIGNS
-========================= */
+/* WALL SIGNS */
 
 .wall-gallery {
   position: fixed;
@@ -45,7 +41,6 @@ body {
 .sign {
   position: absolute;
   display: block;
-
   object-fit: cover;
 
   border: 7px solid #4b2918;
@@ -77,9 +72,7 @@ body {
 }
 
 
-/* =========================
-   MAIN AREA
-========================= */
+/* MAIN AREA */
 
 .hero {
   position: relative;
@@ -94,16 +87,14 @@ body {
   justify-content: center;
 
   gap: 25px;
-
   padding: 40px;
 }
 
 
-/* =========================
-   MAIN CARD
-========================= */
+/* MAIN CARD */
 
 .content {
+  position: relative;
   direction: rtl;
 
   width: 100%;
@@ -123,7 +114,6 @@ body {
 
 .welcome {
   margin: 0;
-
   font-size: 25px;
   font-weight: bold;
 }
@@ -146,9 +136,7 @@ h1 {
 }
 
 
-/* =========================
-   BUTTON
-========================= */
+/* BUTTON */
 
 button {
   margin-top: 25px;
@@ -175,14 +163,11 @@ button {
 
 button:hover {
   background: #e34b39;
-
   transform: translateY(-3px);
 }
 
 
-/* =========================
-   MAN + WOMAN
-========================= */
+/* MAN + WOMAN AREA */
 
 .character {
   position: relative;
@@ -215,18 +200,19 @@ button:hover {
 }
 
 
-/* WOMAN */
+/* WOMAN
+   تحت زر ابدأ التعارف */
 
 .character .woman {
-  position: absolute;
+  position: fixed;
 
   z-index: 3;
 
-  width: 280px;
+  width: 240px;
   height: auto;
 
-  right: -190px;
-  bottom: -10px;
+  left: calc(50% - 330px);
+  bottom: 0;
 
   object-fit: contain;
 
@@ -234,9 +220,7 @@ button:hover {
 }
 
 
-/* =========================
-   MEDIUM SCREENS
-========================= */
+/* MEDIUM SCREENS */
 
 @media (max-width: 1000px) {
 
@@ -248,7 +232,6 @@ button:hover {
   .sign-1 {
     top: 20px;
     left: 20px;
-
     width: 130px;
   }
 
@@ -259,16 +242,18 @@ button:hover {
   .sign-3 {
     top: 20px;
     right: 20px;
-
     width: 130px;
   }
 
+  .character .woman {
+    width: 200px;
+    left: 22%;
+    bottom: 0;
+  }
 }
 
 
-/* =========================
-   TABLETS
-========================= */
+/* TABLET */
 
 @media (max-width: 800px) {
 
@@ -303,18 +288,17 @@ button:hover {
   }
 
   .character .woman {
-    width: 190px;
+    position: absolute;
 
-    right: -125px;
+    width: 160px;
+
+    left: -170px;
     bottom: 0;
   }
-
 }
 
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media (max-width: 600px) {
 
@@ -343,10 +327,11 @@ button:hover {
   }
 
   .character .woman {
-    width: 155px;
+    position: absolute;
 
-    right: -90px;
+    width: 130px;
+
+    left: -120px;
     bottom: 0;
   }
-
 }
