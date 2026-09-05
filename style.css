@@ -12,8 +12,10 @@ body {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+
   font-family: Tahoma, Arial, sans-serif;
   color: #2f1b13;
+
   background-color: #b87935;
 
   background-image:
@@ -28,7 +30,10 @@ body {
   background-size: cover;
 }
 
-/* البراويز */
+
+/* =========================
+   WALL SIGNS
+========================= */
 
 .wall-gallery {
   position: fixed;
@@ -40,10 +45,13 @@ body {
 .sign {
   position: absolute;
   display: block;
+
   object-fit: cover;
+
   border: 7px solid #4b2918;
   outline: 3px solid #1f110c;
   border-radius: 4px;
+
   box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
 }
 
@@ -68,11 +76,15 @@ body {
   transform: rotate(-3deg);
 }
 
-/* الصفحة الرئيسية */
+
+/* =========================
+   MAIN AREA
+========================= */
 
 .hero {
   position: relative;
   z-index: 2;
+
   min-height: 100vh;
 
   display: flex;
@@ -82,47 +94,65 @@ body {
   justify-content: center;
 
   gap: 25px;
+
   padding: 40px;
 }
 
-/* الكارت */
+
+/* =========================
+   MAIN CARD
+========================= */
 
 .content {
   direction: rtl;
+
   width: 100%;
   max-width: 650px;
+
   padding: 35px;
+
   text-align: center;
 
   background: rgba(255, 242, 200, 0.94);
+
   border: 4px solid #3b2118;
   border-radius: 24px;
+
   box-shadow: 10px 10px 0 rgba(59, 33, 24, 0.9);
 }
 
 .welcome {
   margin: 0;
+
   font-size: 25px;
   font-weight: bold;
 }
 
 h1 {
   margin: 5px 0 10px;
+
   color: #b5281c;
+
   font-size: 65px;
+
   text-shadow: 3px 3px 0 #f2b35d;
 }
 
 .description {
   margin: 0;
+
   font-size: 24px;
   font-weight: bold;
 }
 
-/* الزرار */
+
+/* =========================
+   BUTTON
+========================= */
 
 button {
   margin-top: 25px;
+
   padding: 15px 32px;
 
   color: white;
@@ -130,10 +160,12 @@ button {
 
   border: 3px solid #3b2118;
   border-radius: 14px;
+
   box-shadow: 6px 6px 0 #3b2118;
 
   font-size: 21px;
   font-weight: bold;
+
   cursor: pointer;
 
   transition:
@@ -143,45 +175,68 @@ button {
 
 button:hover {
   background: #e34b39;
+
   transform: translateY(-3px);
 }
 
-/* الراجل والست */
+
+/* =========================
+   MAN + WOMAN
+========================= */
 
 .character {
   position: relative;
+
   flex: 0 0 240px;
+
   align-self: flex-end;
+
   margin-bottom: -25px;
+
+  overflow: visible;
 }
+
+
+/* MAN */
 
 .character .man {
   position: relative;
+
   z-index: 2;
 
   display: block;
-  width: 100%;
+
+  width: 240px;
+  height: auto;
+
   max-height: 65vh;
+
   object-fit: contain;
 }
 
-/* الست */
+
+/* WOMAN */
 
 .character .woman {
   position: absolute;
 
-  width: 220px;
-  height: auto;
-
-  right: -150px;
-  bottom: -5px;
-
   z-index: 3;
 
+  width: 280px;
+  height: auto;
+
+  right: -190px;
+  bottom: -10px;
+
   object-fit: contain;
+
+  pointer-events: none;
 }
 
-/* الشاشات المتوسطة */
+
+/* =========================
+   MEDIUM SCREENS
+========================= */
 
 @media (max-width: 1000px) {
 
@@ -193,6 +248,7 @@ button:hover {
   .sign-1 {
     top: 20px;
     left: 20px;
+
     width: 130px;
   }
 
@@ -203,22 +259,24 @@ button:hover {
   .sign-3 {
     top: 20px;
     right: 20px;
+
     width: 130px;
   }
 
-  .character .woman {
-    width: 125px;
-    right: -80px;
-  }
 }
 
-/* الموبايل */
+
+/* =========================
+   TABLETS
+========================= */
 
 @media (max-width: 800px) {
 
   .hero {
     flex-direction: column;
+
     gap: 10px;
+
     padding: 40px 20px 0;
   }
 
@@ -232,17 +290,31 @@ button:hover {
 
   .character {
     flex-basis: auto;
+
     width: 210px;
+
     align-self: center;
+
     margin-bottom: 0;
   }
 
+  .character .man {
+    width: 210px;
+  }
+
   .character .woman {
-    width: 110px;
-    right: -65px;
+    width: 190px;
+
+    right: -125px;
     bottom: 0;
   }
+
 }
+
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -262,8 +334,19 @@ button:hover {
     width: 100%;
   }
 
-  .character .woman {
-    width: 95px;
-    right: -45px;
+  .character {
+    width: 180px;
   }
+
+  .character .man {
+    width: 180px;
+  }
+
+  .character .woman {
+    width: 155px;
+
+    right: -90px;
+    bottom: 0;
+  }
+
 }
