@@ -45,7 +45,6 @@ body {
 .sign {
   position: absolute;
   display: block;
-
   object-fit: cover;
 
   border: 7px solid #4b2918;
@@ -302,15 +301,11 @@ button:hover {
 
   body {
     min-height: 100vh;
-
     overflow-x: hidden;
 
     background-position: center top;
     background-size: auto 100%;
   }
-
-
-  /* البراويز تظهر على الموبايل */
 
   .wall-gallery {
     display: block !important;
@@ -355,9 +350,6 @@ button:hover {
     transform: rotate(-3deg);
   }
 
-
-  /* الصفحة */
-
   .hero {
     position: relative;
 
@@ -365,14 +357,8 @@ button:hover {
 
     min-height: 100vh;
 
-    padding:
-      120px
-      14px
-      360px;
+    padding: 120px 14px 360px;
   }
-
-
-  /* الكارت */
 
   .content {
     position: relative;
@@ -416,9 +402,6 @@ button:hover {
     box-shadow: 5px 5px 0 #3b2118;
   }
 
-
-  /* الست تحت الكارت ناحية الشمال */
-
   .content .woman {
     position: absolute !important;
 
@@ -438,9 +421,6 @@ button:hover {
 
     z-index: 5;
   }
-
-
-  /* الراجل تحت الكارت ناحية اليمين */
 
   .character {
     position: absolute !important;
@@ -509,10 +489,7 @@ button:hover {
   }
 
   .hero {
-    padding:
-      100px
-      10px
-      340px;
+    padding: 100px 10px 340px;
   }
 
   .content {
