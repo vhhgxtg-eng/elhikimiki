@@ -12,10 +12,8 @@ body {
 body {
   min-height: 100vh;
   overflow-x: hidden;
-
   font-family: Tahoma, Arial, sans-serif;
   color: #2f1b13;
-
   background-color: #b87935;
 
   background-image:
@@ -30,11 +28,6 @@ body {
   background-size: cover;
 }
 
-
-/* =========================
-   البراويز - لابتوب
-========================= */
-
 .wall-gallery {
   position: fixed;
   inset: 0;
@@ -46,11 +39,9 @@ body {
   position: absolute;
   display: block;
   object-fit: cover;
-
   border: 7px solid #4b2918;
   outline: 3px solid #1f110c;
   border-radius: 4px;
-
   box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
 }
 
@@ -75,15 +66,9 @@ body {
   transform: rotate(-3deg);
 }
 
-
-/* =========================
-   الصفحة الرئيسية - لابتوب
-========================= */
-
 .hero {
   position: relative;
   z-index: 2;
-
   min-height: 100vh;
 
   display: flex;
@@ -93,14 +78,8 @@ body {
   justify-content: center;
 
   gap: 25px;
-
   padding: 40px;
 }
-
-
-/* =========================
-   البوكس
-========================= */
 
 .content {
   position: relative;
@@ -110,7 +89,6 @@ body {
   max-width: 650px;
 
   padding: 35px;
-
   text-align: center;
 
   background: rgba(255, 242, 200, 0.94);
@@ -123,36 +101,25 @@ body {
 
 .welcome {
   margin: 0;
-
   font-size: 25px;
   font-weight: bold;
 }
 
 h1 {
   margin: 5px 0 10px;
-
   color: #b5281c;
-
   font-size: 65px;
-
   text-shadow: 3px 3px 0 #f2b35d;
 }
 
 .description {
   margin: 0;
-
   font-size: 24px;
   font-weight: bold;
 }
 
-
-/* =========================
-   الزر
-========================= */
-
 button {
   margin-top: 25px;
-
   padding: 15px 32px;
 
   color: white;
@@ -174,11 +141,6 @@ button:hover {
   transform: translateY(-3px);
 }
 
-
-/* =========================
-   الست - لابتوب
-========================= */
-
 .content .woman {
   position: absolute;
 
@@ -196,11 +158,6 @@ button:hover {
   object-fit: contain;
   pointer-events: none;
 }
-
-
-/* =========================
-   الراجل - لابتوب
-========================= */
 
 .character {
   position: relative;
@@ -227,9 +184,6 @@ button:hover {
   object-fit: contain;
 }
 
-
-/* ظل الراجل */
-
 .character::after {
   content: "";
 
@@ -246,16 +200,13 @@ button:hover {
   background: rgba(45, 25, 15, 0.28);
 
   border-radius: 50%;
-
   filter: blur(8px);
 
   z-index: 1;
 }
 
 
-/* =========================
-   شاشات متوسطة
-========================= */
+/* TABLET */
 
 @media (max-width: 1000px) {
 
@@ -274,7 +225,6 @@ button:hover {
     top: 30px;
     left: 50%;
     right: auto;
-
     width: 125px;
 
     transform: translateX(-50%) rotate(3deg);
@@ -288,9 +238,7 @@ button:hover {
 }
 
 
-/* =========================
-   الموبايل
-========================= */
+/* MOBILE */
 
 @media (max-width: 800px) {
 
@@ -304,12 +252,15 @@ button:hover {
     overflow-x: hidden;
 
     background-position: center top;
-    background-size: auto 100%;
+    background-size: cover;
+    background-attachment: scroll;
   }
 
   .wall-gallery {
     display: block !important;
-    position: absolute;
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1;
   }
 
   .sign {
@@ -322,32 +273,32 @@ button:hover {
   }
 
   .sign-1 {
-    top: 16px;
-    left: 10px;
+    top: 14px !important;
+    left: 8px !important;
 
-    width: 82px;
+    width: 76px !important;
 
-    transform: rotate(-4deg);
+    transform: rotate(-4deg) !important;
   }
 
   .sign-2 {
-    top: 22px;
+    top: 20px !important;
 
-    left: 50%;
-    right: auto;
+    left: 50% !important;
+    right: auto !important;
 
-    width: 78px;
+    width: 74px !important;
 
-    transform: translateX(-50%) rotate(3deg);
+    transform: translateX(-50%) rotate(3deg) !important;
   }
 
   .sign-3 {
-    top: 17px;
-    right: 10px;
+    top: 15px !important;
+    right: 8px !important;
 
-    width: 85px;
+    width: 80px !important;
 
-    transform: rotate(-3deg);
+    transform: rotate(-3deg) !important;
   }
 
   .hero {
@@ -357,7 +308,7 @@ button:hover {
 
     min-height: 100vh;
 
-    padding: 120px 14px 360px;
+    padding: 110px 12px 330px;
   }
 
   .content {
@@ -366,7 +317,7 @@ button:hover {
     width: 100%;
     max-width: 100%;
 
-    padding: 24px 16px 26px;
+    padding: 24px 16px 25px;
 
     border-width: 3px;
     border-radius: 20px;
@@ -379,7 +330,7 @@ button:hover {
   }
 
   h1 {
-    margin: 8px 0 10px;
+    margin: 7px 0 10px;
 
     font-size: 34px;
     line-height: 1.15;
@@ -405,11 +356,11 @@ button:hover {
   .content .woman {
     position: absolute !important;
 
-    width: 115px !important;
-    max-width: 115px !important;
+    width: 110px !important;
+    max-width: 110px !important;
     height: auto !important;
 
-    left: 27% !important;
+    left: 25% !important;
     right: auto !important;
 
     top: calc(100% + 30px) !important;
@@ -425,12 +376,12 @@ button:hover {
   .character {
     position: absolute !important;
 
-    width: 135px !important;
+    width: 130px !important;
 
     right: 8% !important;
     left: auto !important;
 
-    top: 420px !important;
+    top: 405px !important;
 
     margin: 0 !important;
 
@@ -440,15 +391,15 @@ button:hover {
   .character .man {
     display: block;
 
-    width: 135px !important;
-    max-width: 135px !important;
+    width: 130px !important;
+    max-width: 130px !important;
     height: auto !important;
 
     max-height: none !important;
   }
 
   .character::after {
-    width: 100px;
+    width: 95px;
     height: 16px;
 
     bottom: 0;
@@ -458,42 +409,33 @@ button:hover {
 }
 
 
-/* =========================
-   موبايل صغير
-========================= */
+/* SMALL MOBILE */
 
 @media (max-width: 480px) {
 
-  body {
-    background-size: auto 100%;
-  }
-
   .sign-1 {
-    width: 70px;
-
-    top: 12px;
-    left: 7px;
+    top: 10px !important;
+    left: 6px !important;
+    width: 68px !important;
   }
 
   .sign-2 {
-    width: 68px;
-
-    top: 18px;
+    top: 16px !important;
+    width: 66px !important;
   }
 
   .sign-3 {
-    width: 73px;
-
-    top: 13px;
-    right: 7px;
+    top: 11px !important;
+    right: 6px !important;
+    width: 70px !important;
   }
 
   .hero {
-    padding: 100px 10px 340px;
+    padding: 95px 10px 320px;
   }
 
   .content {
-    padding: 22px 12px 24px;
+    padding: 21px 12px 23px;
   }
 
   .welcome {
@@ -516,7 +458,7 @@ button:hover {
     width: 100px !important;
     max-width: 100px !important;
 
-    left: 26% !important;
+    left: 25% !important;
 
     top: calc(100% + 25px) !important;
   }
@@ -526,7 +468,7 @@ button:hover {
 
     right: 6% !important;
 
-    top: 390px !important;
+    top: 375px !important;
   }
 
   .character .man {
@@ -535,6 +477,6 @@ button:hover {
   }
 
   .character::after {
-    width: 90px;
+    width: 88px;
   }
 }
