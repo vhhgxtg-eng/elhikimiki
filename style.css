@@ -162,7 +162,7 @@ button:hover {
 }
 
 
-/* SITTING COUPLE - LAPTOP */
+/* COUPLE - LAPTOP */
 
 .couple-sitting {
   position: relative;
@@ -177,9 +177,10 @@ button:hover {
 
   margin: 30px auto 0;
 
-  filter: drop-shadow(
-    0 12px 7px rgba(45, 25, 15, 0.35)
-  );
+  filter:
+    drop-shadow(
+      0 12px 7px rgba(45, 25, 15, 0.35)
+    );
 }
 
 
@@ -226,17 +227,21 @@ button:hover {
 
   html,
   body {
+    height: 100%;
     min-height: 100%;
   }
 
   body {
-    min-height: 100vh;
+    min-height: 100svh;
     overflow-x: hidden;
 
-    background-position: center top;
+    background-position: center center;
     background-size: cover;
-    background-attachment: scroll;
+    background-attachment: fixed;
   }
+
+
+  /* SIGNS */
 
   .wall-gallery {
     display: block !important;
@@ -278,24 +283,38 @@ button:hover {
     width: 80px;
   }
 
+
+  /* MAIN MOBILE */
+
   .hero {
-    display: flex;
-    flex-direction: column;
+    position: relative;
 
-    align-items: center;
-    justify-content: flex-start;
+    display: block;
 
-    min-height: 100vh;
+    width: 100%;
+
+    min-height: 100svh;
+    height: 100svh;
 
     padding:
       110px
       10px
-      45px;
+      0;
+
+    overflow: hidden;
   }
 
+
+  /* CARD MOBILE */
+
   .content {
+    position: relative;
+    z-index: 10;
+
     width: calc(100% - 10px);
     max-width: 680px;
+
+    margin: 0 auto;
 
     padding:
       24px
@@ -340,18 +359,29 @@ button:hover {
       5px 5px 0 #3b2118;
   }
 
+
+  /* COUPLE MOBILE */
+
   .couple-sitting {
+    position: absolute;
+
+    z-index: 4;
+
     width: min(94vw, 600px);
+    max-width: none;
     height: auto;
 
-    margin:
-      245px
-      auto
-      0;
+    left: 50%;
+
+    bottom: 18px;
+
+    margin: 0;
+
+    transform: translateX(-50%);
 
     filter:
       drop-shadow(
-        0 10px 6px rgba(45, 25, 15, 0.38)
+        0 8px 5px rgba(45, 25, 15, 0.38)
       );
   }
 }
@@ -379,10 +409,13 @@ button:hover {
   }
 
   .hero {
+    height: 100svh;
+    min-height: 100svh;
+
     padding:
       95px
       8px
-      40px;
+      0;
   }
 
   .content {
@@ -414,9 +447,6 @@ button:hover {
     width: 96vw;
     max-width: 430px;
 
-    margin:
-      238px
-      auto
-      0;
+    bottom: 15px;
   }
 }
