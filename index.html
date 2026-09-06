@@ -79,10 +79,12 @@
       <p class="description">
         موقع تعارف مصري على رواقة ☕
       </p>
-
-      <button type="button">
-        ابدأ التعارف
-      </button>
+      <div class="cta-wrap">
+        <div id="waving-hand" class="waving-hand" aria-hidden="true"></div>
+        <button type="button">
+          ابدأ التعارف
+        </button>
+      </div>
 
     </section>
 
@@ -93,6 +95,43 @@
     >
 
   </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+  <script>
+    (() => {
+      const container = document.getElementById('waving-hand');
+      if (!container || !window.lottie || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+      const svgAsset = (svg) => 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+      const sleeve = svgAsset(`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="210" viewBox="0 0 180 210"><path fill="#f3d08b" stroke="#3b2118" stroke-width="7" stroke-linejoin="round" d="M49 205 59 105c2-21 16-33 34-33s33 12 36 33l10 100Z"/><path fill="none" stroke="#b5281c" stroke-width="9" d="M58 164h73"/></svg>`);
+      const hand = svgAsset(`<svg xmlns="http://www.w3.org/2000/svg" width="180" height="210" viewBox="0 0 180 210"><g fill="#c88955" stroke="#3b2118" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M68 184c-17-17-25-39-25-65V71c0-9 5-15 13-15s13 6 13 15V29c0-10 6-17 14-17s14 7 14 17v36-48c0-10 6-17 14-17s14 7 14 17v49-38c0-10 6-17 14-17s14 7 14 17v61l9-20c4-9 12-12 20-8 8 4 10 12 6 21l-20 49c-10 25-28 42-51 53Z"/><ellipse cx="139" cy="122" rx="12" ry="14" fill="#b5281c"/><ellipse cx="139" cy="122" rx="5" ry="6" fill="#f2b35d" stroke-width="3"/></g></svg>`);
+
+      const waveFrames = [
+        {t:0,s:[0],e:[0]},{t:16,s:[0],e:[-18]},{t:25,s:[-18],e:[20]},
+        {t:35,s:[20],e:[-20]},{t:45,s:[-20],e:[19]},{t:55,s:[19],e:[-18]},
+        {t:65,s:[-18],e:[17]},{t:75,s:[17],e:[-14]},{t:85,s:[-14],e:[0]},
+        {t:94,s:[0]}
+      ].map((frame, index, frames) => ({...frame, i:{x:[0.42],y:[0]}, o:{x:[0.58],y:[1]}, ...(index === frames.length - 1 ? {} : {e:frame.e})}));
+
+      window.lottie.loadAnimation({
+        container,
+        renderer: 'svg',
+        loop: false,
+        autoplay: true,
+        animationData: {
+          v:'5.12.2', fr:30, ip:0, op:120, w:220, h:240, nm:'waving hand', ddd:0,
+          assets:[
+            {id:'sleeve',w:180,h:210,u:'',p:sleeve,e:1},
+            {id:'hand',w:180,h:210,u:'',p:hand,e:1}
+          ],
+          layers:[
+            {ddd:0,ind:1,ty:2,refId:'sleeve',ks:{o:{a:1,k:[{t:0,s:[0],e:[100]},{t:12,s:[100],e:[100]},{t:98,s:[100],e:[0]},{t:116,s:[0]}]},r:{a:0,k:0},p:{a:1,k:[{t:0,s:[110,278,0],e:[110,178,0]},{t:14,s:[110,178,0],e:[110,178,0]},{t:96,s:[110,178,0],e:[110,278,0]},{t:118,s:[110,278,0]}]},a:{a:0,k:[90,105,0]},s:{a:0,k:[78,78,100]}},ao:0,ip:0,op:120,st:0,bm:0},
+            {ddd:0,ind:2,ty:2,refId:'hand',ks:{o:{a:1,k:[{t:0,s:[0],e:[100]},{t:12,s:[100],e:[100]},{t:98,s:[100],e:[0]},{t:116,s:[0]}]},r:{a:1,k:waveFrames},p:{a:1,k:[{t:0,s:[110,278,0],e:[110,178,0]},{t:14,s:[110,178,0],e:[110,178,0]},{t:96,s:[110,178,0],e:[110,278,0]},{t:118,s:[110,278,0]}]},a:{a:0,k:[91,184,0]},s:{a:0,k:[78,78,100]}},ao:0,ip:0,op:120,st:0,bm:0}
+          ]
+        }
+      });
+    })();
+  </script>
 
 </body>
 
