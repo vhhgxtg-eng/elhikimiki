@@ -1,118 +1,604 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+* {
+  box-sizing: border-box;
+}
 
-<head>
-  <meta charset="UTF-8">
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+}
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+body {
+  min-height: 100vh;
+  overflow-x: hidden;
+  font-family: Tahoma, Arial, sans-serif;
+  color: #2f1b13;
+  background-color: #b87935;
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png">
+  background-image:
+    linear-gradient(
+      rgba(45, 22, 10, 0.08),
+      rgba(45, 22, 10, 0.20)
+    ),
+    url("images/ahwa-background.png");
 
-  <!-- SEO -->
-  <title>الحيكي الميكي للهلس والهشك بشك | موقع تعارف مصري</title>
-
-  <meta
-    name="description"
-    content="الحيكي الميكي للهلس والهشك بشك - موقع تعارف مصري كوميدي على رواقة. ادخل عالم الحيكي ميكي واتعرف وهلس واضحك."
-  >
-
-  <meta
-    name="keywords"
-    content="الحيكي الميكي, الحيكي ميكي, الحيكي الميكي للهلس والهشك بشك, الهلس, الهشك بشك, موقع تعارف مصري"
-  >
-
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF52NSZL86"></script>
-
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'G-YF52NSZL86');
-  </script>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-  <!-- يافطات القهوة -->
-  <div class="wall-gallery" aria-label="براويز القهوة">
-
-    <img
-      class="sign sign-1"
-      src="images/sign-brain.jpg"
-      alt="رجاء رج المخ جيدًا قبل الكلام"
-    >
-
-    <img
-      class="sign sign-2"
-      src="images/sign-dance.jpg"
-      alt="عملتها الرقص هزت لغيري"
-    >
-
-    <img
-      class="sign sign-3"
-      src="images/sign-where.jpg"
-      alt="كنت فين يا لأ لما أنا قلت آه"
-    >
-
-  </div>
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 
 
-  <!-- الصفحة الرئيسية -->
-  <main class="hero">
+/* SIGNS */
 
-    <section class="content">
+.wall-gallery {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
 
-      <p class="welcome">
-        أهلًا بيك في
-      </p>
+.sign {
+  position: absolute;
+  display: block;
+  object-fit: cover;
+
+  border: 7px solid #4b2918;
+  outline: 3px solid #1f110c;
+  border-radius: 4px;
+
+  box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
+}
+
+.sign-1 {
+  top: 65px;
+  left: 230px;
+  width: 170px;
+
+  transform-origin: 50% 0%;
+  transform: rotate(-4deg);
+
+  animation:
+    signPendulum
+    3.9s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    0.55s
+    both;
+}
+
+.sign-2 {
+  top: 85px;
+  left: 50%;
+  width: 170px;
+
+  transform:
+    translateX(-50%)
+    rotate(4deg);
+}
+
+.sign-3 {
+  top: 110px;
+  right: 90px;
+  width: 195px;
+
+  transform: rotate(-3deg);
+}
 
 
-      <!-- العنوان + الصورة الجديدة -->
-      <h1 class="main-title">
+/* SIGN ANIMATION */
 
-        <span>
-          الحيكي ميكي
-        </span>
+@keyframes signPendulum {
 
-        <img
-          class="title-emoji"
-          src="images/wave-emoji.png"
-          alt="الحيكي ميكي"
-        >
+  0% {
+    transform: rotate(-4deg);
+  }
 
-      </h1>
+  4% {
+    transform: rotate(-1deg);
+  }
+
+  8% {
+    transform: rotate(-7deg);
+  }
+
+  12% {
+    transform: rotate(-2deg);
+  }
+
+  20% {
+    transform: rotate(19deg);
+  }
+
+  34% {
+    transform: rotate(-17deg);
+  }
+
+  47% {
+    transform: rotate(13deg);
+  }
+
+  59% {
+    transform: rotate(-12deg);
+  }
+
+  69% {
+    transform: rotate(9deg);
+  }
+
+  78% {
+    transform: rotate(-8deg);
+  }
+
+  85% {
+    transform: rotate(5deg);
+  }
+
+  91% {
+    transform: rotate(-6deg);
+  }
+
+  96% {
+    transform: rotate(-3deg);
+  }
+
+  100% {
+    transform: rotate(-4deg);
+  }
+}
 
 
-      <p class="description">
-        موقع تعارف مصري على رواقة ☕
-      </p>
+/* MAIN */
+
+.hero {
+  position: relative;
+  z-index: 2;
+
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  padding: 170px 30px 40px;
+}
 
 
-      <button type="button">
-        ابدأ التعارف
-      </button>
+/* CARD */
 
-    </section>
+.content {
+  position: relative;
+  z-index: 3;
+
+  direction: rtl;
+
+  width: 100%;
+  max-width: 650px;
+
+  padding: 35px;
+
+  text-align: center;
+
+  background: rgba(255, 242, 200, 0.94);
+
+  border: 4px solid #3b2118;
+  border-radius: 24px;
+
+  box-shadow: 10px 10px 0 rgba(59, 33, 24, 0.9);
+}
+
+.welcome {
+  margin: 0;
+
+  font-size: 25px;
+  font-weight: bold;
+}
 
 
-    <!-- الراجل والست -->
-    <img
-      class="couple-sitting"
-      src="images/couple-sitting.png.png"
-      alt="الحيكي الميكي للهلس والهشك بشك - الحيكي ميكي والست قاعدين على القهوة"
-    >
+/* TITLE */
 
-  </main>
+.main-title {
+  margin: 5px 0 10px;
 
-</body>
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
-</html>
+  gap: 10px;
+
+  color: #b5281c;
+
+  font-size: 65px;
+  line-height: 1.1;
+
+  text-shadow: 3px 3px 0 #f2b35d;
+}
+
+.main-title span {
+  display: inline-block;
+}
+
+
+/* EMOJI IMAGE - NO CIRCLE / NO BOX */
+
+.title-emoji {
+  display: block;
+
+  width: 82px;
+  height: auto;
+
+  flex-shrink: 0;
+
+  object-fit: contain;
+
+  border: none;
+  outline: none;
+  border-radius: 0;
+
+  box-shadow: none;
+
+  background: transparent;
+
+  transform: rotate(-4deg);
+}
+
+
+/* DESCRIPTION */
+
+.description {
+  margin: 0;
+
+  font-size: 24px;
+  font-weight: bold;
+}
+
+
+/* BUTTON */
+
+button {
+  margin-top: 25px;
+
+  padding: 15px 32px;
+
+  color: white;
+  background: #c93627;
+
+  border: 3px solid #3b2118;
+  border-radius: 14px;
+
+  box-shadow: 6px 6px 0 #3b2118;
+
+  font-size: 21px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+button:hover {
+  background: #e34b39;
+  transform: translateY(-3px);
+}
+
+
+/* COUPLE */
+
+.couple-sitting {
+  position: relative;
+  z-index: 4;
+
+  display: block;
+
+  width: min(560px, 72vw);
+  height: auto;
+
+  object-fit: contain;
+
+  margin: 30px auto 0;
+
+  filter:
+    drop-shadow(
+      0 12px 7px rgba(45, 25, 15, 0.35)
+    );
+}
+
+
+/* TABLET */
+
+@media (max-width: 1000px) {
+
+  .sign {
+    border-width: 4px;
+    outline-width: 2px;
+  }
+
+  .sign-1 {
+    top: 20px;
+    left: 20px;
+    width: 130px;
+  }
+
+  .sign-2 {
+    top: 25px;
+    left: 50%;
+    width: 125px;
+
+    transform:
+      translateX(-50%)
+      rotate(3deg);
+  }
+
+  .sign-3 {
+    top: 20px;
+    right: 20px;
+    width: 130px;
+  }
+
+  .hero {
+    padding-top: 150px;
+  }
+
+  .main-title {
+    font-size: 54px;
+  }
+
+  .title-emoji {
+    width: 68px;
+    height: auto;
+  }
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  html,
+  body {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  body {
+    min-height: 100svh;
+
+    overflow-x: hidden;
+
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+
+  .wall-gallery {
+    display: block !important;
+    position: absolute;
+    z-index: 5;
+  }
+
+  .sign {
+    display: block !important;
+
+    border-width: 3px;
+    outline-width: 1px;
+
+    box-shadow:
+      3px 4px 0 rgba(38, 19, 10, 0.35);
+  }
+
+  .sign-1 {
+    top: 14px;
+    left: 8px;
+    width: 76px;
+
+    transform-origin: 50% 0%;
+
+    animation:
+      signPendulum
+      3.7s
+      cubic-bezier(0.45, 0, 0.55, 1)
+      0.45s
+      both;
+  }
+
+  .sign-2 {
+    top: 20px;
+    left: 50%;
+    width: 74px;
+
+    transform:
+      translateX(-50%)
+      rotate(3deg);
+  }
+
+  .sign-3 {
+    top: 15px;
+    right: 8px;
+    width: 80px;
+  }
+
+
+  .hero {
+    position: relative;
+
+    display: block;
+
+    width: 100%;
+
+    min-height: 100svh;
+    height: 100svh;
+
+    padding: 110px 10px 0;
+
+    overflow: hidden;
+  }
+
+
+  .content {
+    position: relative;
+    z-index: 10;
+
+    width: calc(100% - 10px);
+    max-width: 680px;
+
+    margin: 0 auto;
+
+    padding: 24px 16px 26px;
+
+    border-width: 3px;
+    border-radius: 20px;
+
+    box-shadow:
+      7px 7px 0 rgba(59, 33, 24, 0.9);
+  }
+
+  .welcome {
+    font-size: 18px;
+  }
+
+  .main-title {
+    margin: 8px 0 10px;
+
+    gap: 7px;
+
+    font-size: 34px;
+    line-height: 1.15;
+
+    flex-wrap: nowrap;
+  }
+
+  .title-emoji {
+    width: 50px;
+    height: auto;
+
+    border-radius: 0;
+    box-shadow: none;
+    background: transparent;
+  }
+
+  .description {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  button {
+    width: 100%;
+
+    margin-top: 20px;
+
+    padding: 13px 15px;
+
+    font-size: 18px;
+
+    box-shadow:
+      5px 5px 0 #3b2118;
+  }
+
+  .couple-sitting {
+    position: absolute;
+
+    z-index: 4;
+
+    width: min(94vw, 600px);
+    max-width: none;
+    height: auto;
+
+    left: 50%;
+    bottom: 18px;
+
+    margin: 0;
+
+    transform:
+      translateX(-50%);
+
+    filter:
+      drop-shadow(
+        0 8px 5px rgba(45, 25, 15, 0.38)
+      );
+  }
+}
+
+
+/* SMALL MOBILE */
+
+@media (max-width: 480px) {
+
+  .sign-1 {
+    top: 10px;
+    left: 6px;
+    width: 68px;
+  }
+
+  .sign-2 {
+    top: 16px;
+    width: 66px;
+  }
+
+  .sign-3 {
+    top: 11px;
+    right: 6px;
+    width: 70px;
+  }
+
+  .hero {
+    height: 100svh;
+    min-height: 100svh;
+
+    padding:
+      95px
+      8px
+      0;
+  }
+
+  .content {
+    width: 100%;
+
+    padding:
+      21px
+      12px
+      23px;
+  }
+
+  .welcome {
+    font-size: 17px;
+  }
+
+  .main-title {
+    font-size: 30px;
+    gap: 5px;
+  }
+
+  .title-emoji {
+    width: 44px;
+    height: auto;
+  }
+
+  .description {
+    font-size: 15px;
+  }
+
+  button {
+    font-size: 17px;
+  }
+
+  .couple-sitting {
+    width: 96vw;
+    max-width: 430px;
+
+    bottom: 15px;
+  }
+}
+
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .sign-1 {
+    animation: none;
+    transform: rotate(-4deg);
+  }
+}
