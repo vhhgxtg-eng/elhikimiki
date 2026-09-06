@@ -38,15 +38,12 @@ body {
 .wall-gallery {
   position: fixed;
   inset: 0;
-
   z-index: 1;
-
   pointer-events: none;
 }
 
 .sign {
   position: absolute;
-
   display: block;
 
   object-fit: cover;
@@ -60,7 +57,9 @@ body {
 }
 
 
-/* LEFT SIGN - رج مخك */
+/* =========================
+   LEFT SIGN - رج مخك
+========================= */
 
 .sign-1 {
   top: 65px;
@@ -68,20 +67,29 @@ body {
 
   width: 170px;
 
-  transform: rotate(-4deg);
-
+  /*
+    أهم جزء:
+    اليافطة بتلف حوالين نقطة فوق
+    زي لمبة متعلقة
+  */
   transform-origin: 50% 0%;
 
+  transform: rotate(-4deg);
+
   animation:
-    earthquakeSwingDesktop
-    2.8s
-    cubic-bezier(0.22, 0.75, 0.32, 1)
-    0.6s
+    signPendulum
+    3.9s
+    cubic-bezier(0.45, 0, 0.55, 1)
+    0.55s
     both;
+
+  will-change: transform;
 }
 
 
-/* CENTER SIGN */
+/* =========================
+   CENTER SIGN - ثابتة
+========================= */
 
 .sign-2 {
   top: 85px;
@@ -95,7 +103,9 @@ body {
 }
 
 
-/* RIGHT SIGN */
+/* =========================
+   RIGHT SIGN - ثابتة
+========================= */
 
 .sign-3 {
   top: 110px;
@@ -108,122 +118,82 @@ body {
 
 
 /* =========================
-   REALISTIC EARTHQUAKE SWING
-   DESKTOP
+   REALISTIC PENDULUM SWING
 ========================= */
 
-@keyframes earthquakeSwingDesktop {
+@keyframes signPendulum {
+
+  /* البداية الطبيعية */
 
   0% {
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(-4deg);
+    transform: rotate(-4deg);
   }
 
+
+  /* هزة صغيرة كأن الحيطة اتهزت */
+
   4% {
-    transform:
-      translateX(2px)
-      translateY(0)
-      rotate(-2deg);
+    transform: rotate(-1deg);
   }
 
   8% {
-    transform:
-      translateX(-3px)
-      translateY(1px)
-      rotate(-6deg);
+    transform: rotate(-7deg);
   }
 
   12% {
-    transform:
-      translateX(3px)
-      translateY(1px)
-      rotate(-1deg);
+    transform: rotate(-2deg);
   }
 
-  16% {
-    transform:
-      translateX(-2px)
-      translateY(2px)
-      rotate(-7deg);
+
+  /* اليافطة تفلت وتاخد أول مرجحة كبيرة */
+
+  20% {
+    transform: rotate(19deg);
   }
 
-  21% {
-    transform:
-      translateX(1px)
-      translateY(3px)
-      rotate(-3deg);
+
+  /* ترجع الناحية التانية */
+
+  34% {
+    transform: rotate(-17deg);
   }
 
-  27% {
-    transform:
-      translateX(0)
-      translateY(6px)
-      rotate(15deg);
+
+  /* المرجحة تبدأ تقل */
+
+  47% {
+    transform: rotate(13deg);
   }
 
-  39% {
-    transform:
-      translateX(0)
-      translateY(6px)
-      rotate(-13deg);
-  }
-
-  50% {
-    transform:
-      translateX(0)
-      translateY(5px)
-      rotate(10deg);
-  }
-
-  60% {
-    transform:
-      translateX(0)
-      translateY(4px)
-      rotate(-9deg);
+  59% {
+    transform: rotate(-12deg);
   }
 
   69% {
-    transform:
-      translateX(0)
-      translateY(3px)
-      rotate(7deg);
+    transform: rotate(9deg);
   }
 
-  77% {
-    transform:
-      translateX(0)
-      translateY(2px)
-      rotate(-7deg);
+  78% {
+    transform: rotate(-8deg);
   }
 
-  84% {
-    transform:
-      translateX(0)
-      translateY(1px)
-      rotate(5deg);
+  85% {
+    transform: rotate(5deg);
   }
 
-  90% {
-    transform:
-      translateX(0)
-      translateY(1px)
-      rotate(-5deg);
+  91% {
+    transform: rotate(-6deg);
   }
 
-  95% {
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(-3deg);
+  96% {
+    transform: rotate(-3deg);
   }
+
+
+  /* ترجع لميلتها الأصلية */
 
   100% {
-    transform:
-      translateX(0)
-      translateY(0)
-      rotate(-4deg);
+    transform: rotate(-4deg);
   }
 }
 
@@ -234,13 +204,11 @@ body {
 
 .hero {
   position: relative;
-
   z-index: 2;
 
   min-height: 100vh;
 
   display: flex;
-
   flex-direction: column;
 
   align-items: center;
@@ -259,7 +227,6 @@ body {
 
 .content {
   position: relative;
-
   z-index: 3;
 
   direction: rtl;
@@ -324,7 +291,6 @@ button {
     32px;
 
   color: white;
-
   background: #c93627;
 
   border:
@@ -359,7 +325,6 @@ button:hover {
 
 .couple-sitting {
   position: relative;
-
   z-index: 4;
 
   display: block;
@@ -391,10 +356,8 @@ button:hover {
 
   .sign {
     border-width: 4px;
-
     outline-width: 2px;
   }
-
 
   .sign-1 {
     top: 20px;
@@ -402,10 +365,8 @@ button:hover {
 
     width: 130px;
 
-    transform-origin:
-      50% 0%;
+    transform-origin: 50% 0%;
   }
-
 
   .sign-2 {
     top: 25px;
@@ -420,14 +381,12 @@ button:hover {
       rotate(3deg);
   }
 
-
   .sign-3 {
     top: 20px;
     right: 20px;
 
     width: 130px;
   }
-
 
   .hero {
     padding-top: 150px;
@@ -471,12 +430,10 @@ button:hover {
     z-index: 5;
   }
 
-
   .sign {
     display: block !important;
 
     border-width: 3px;
-
     outline-width: 1px;
 
     box-shadow:
@@ -484,26 +441,28 @@ button:hover {
   }
 
 
+  /* رج مخك */
+
   .sign-1 {
     top: 14px;
     left: 8px;
 
     width: 76px;
 
-    transform:
-      rotate(-4deg);
+    transform-origin: 50% 0%;
 
-    transform-origin:
-      50% 0%;
+    transform: rotate(-4deg);
 
     animation:
-      earthquakeSwingMobile
-      2.5s
-      cubic-bezier(0.22, 0.75, 0.32, 1)
-      0.5s
+      signPendulum
+      3.7s
+      cubic-bezier(0.45, 0, 0.55, 1)
+      0.45s
       both;
   }
 
+
+  /* النص ثابتة */
 
   .sign-2 {
     top: 20px;
@@ -519,124 +478,13 @@ button:hover {
   }
 
 
+  /* اليمين ثابتة */
+
   .sign-3 {
     top: 15px;
     right: 8px;
 
     width: 80px;
-  }
-
-
-  /* =========================
-     MOBILE EARTHQUAKE SWING
-  ========================= */
-
-  @keyframes earthquakeSwingMobile {
-
-    0% {
-      transform:
-        translateX(0)
-        translateY(0)
-        rotate(-4deg);
-    }
-
-    5% {
-      transform:
-        translateX(1px)
-        translateY(0)
-        rotate(-2deg);
-    }
-
-    10% {
-      transform:
-        translateX(-2px)
-        translateY(1px)
-        rotate(-6deg);
-    }
-
-    15% {
-      transform:
-        translateX(2px)
-        translateY(1px)
-        rotate(-1deg);
-    }
-
-    20% {
-      transform:
-        translateX(-1px)
-        translateY(2px)
-        rotate(-7deg);
-    }
-
-    26% {
-      transform:
-        translateX(0)
-        translateY(3px)
-        rotate(-3deg);
-    }
-
-    32% {
-      transform:
-        translateX(0)
-        translateY(5px)
-        rotate(14deg);
-    }
-
-    44% {
-      transform:
-        translateX(0)
-        translateY(5px)
-        rotate(-12deg);
-    }
-
-    55% {
-      transform:
-        translateX(0)
-        translateY(4px)
-        rotate(9deg);
-    }
-
-    65% {
-      transform:
-        translateX(0)
-        translateY(3px)
-        rotate(-8deg);
-    }
-
-    74% {
-      transform:
-        translateX(0)
-        translateY(2px)
-        rotate(6deg);
-    }
-
-    82% {
-      transform:
-        translateX(0)
-        translateY(1px)
-        rotate(-6deg);
-    }
-
-    89% {
-      transform:
-        translateX(0)
-        translateY(1px)
-        rotate(4deg);
-    }
-
-    94% {
-      transform:
-        translateX(0)
-        translateY(0)
-        rotate(-5deg);
-    }
-
-    100% {
-      transform:
-        translateX(0)
-        translateY(0)
-        rotate(-4deg);
-    }
   }
 
 
@@ -694,11 +542,9 @@ button:hover {
       7px 7px 0 rgba(59, 33, 24, 0.9);
   }
 
-
   .welcome {
     font-size: 18px;
   }
-
 
   h1 {
     margin:
@@ -711,13 +557,11 @@ button:hover {
     line-height: 1.15;
   }
 
-
   .description {
     font-size: 16px;
 
     line-height: 1.5;
   }
-
 
   button {
     width: 100%;
@@ -780,13 +624,11 @@ button:hover {
     width: 68px;
   }
 
-
   .sign-2 {
     top: 16px;
 
     width: 66px;
   }
-
 
   .sign-3 {
     top: 11px;
@@ -795,10 +637,8 @@ button:hover {
     width: 70px;
   }
 
-
   .hero {
     height: 100svh;
-
     min-height: 100svh;
 
     padding:
@@ -806,7 +646,6 @@ button:hover {
       8px
       0;
   }
-
 
   .content {
     width: 100%;
@@ -817,26 +656,21 @@ button:hover {
       23px;
   }
 
-
   .welcome {
     font-size: 17px;
   }
-
 
   h1 {
     font-size: 30px;
   }
 
-
   .description {
     font-size: 15px;
   }
 
-
   button {
     font-size: 17px;
   }
-
 
   .couple-sitting {
     width: 96vw;
