@@ -1225,7 +1225,7 @@ button:hover {
 @media (max-width: 800px) {
   .shop-sign {
     top: 51%;
-    left: 47%;
+    left: 44%;
     width: min(62vw, 240px);
     padding: 6px 9px 6px;
     border-width: 3px;
