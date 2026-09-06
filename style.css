@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Reem+Kufi+Ink&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa+Ink:wght@400;700&family=Marhey:wght@300..700&family=Reem+Kufi+Ink&display=swap');
 
 * {
   box-sizing: border-box;
@@ -1141,5 +1141,106 @@ button:hover {
 
   .wall-contact strong {
     font-size: 18px;
+  }
+}
+
+/* =========================
+   OLD EGYPTIAN SHOP SIGN
+========================= */
+
+.shop-sign {
+  position: absolute;
+  z-index: 1;
+  top: 56%;
+  left: clamp(24px, 4vw, 64px);
+  width: min(300px, 27vw);
+  padding: 15px 19px 13px;
+  direction: rtl;
+  color: #f4b864;
+  text-align: center;
+  font-family: "Marhey", "Reem Kufi Ink", Tahoma, sans-serif;
+  background:
+    linear-gradient(93deg, rgba(255,255,255,0.05), transparent 28%, rgba(44,17,11,0.11) 70%, transparent),
+    #824033;
+  border: 5px solid #4d281f;
+  border-radius: 5px 9px 4px 7px;
+  outline: 2px solid rgba(239,170,93,0.58);
+  outline-offset: -9px;
+  box-shadow:
+    7px 8px 0 rgba(45,24,15,0.54),
+    inset 0 0 0 2px rgba(53,23,17,0.34),
+    inset 7px 5px 15px rgba(255,194,107,0.08);
+  transform: rotate(-3.2deg) skewX(-1deg);
+  text-shadow:
+    2px 2px 0 #4a251c,
+    -1px -1px 0 rgba(255,213,137,0.25);
+}
+
+.shop-sign::before,
+.shop-sign::after {
+  content: "";
+  position: absolute;
+  top: 9px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #c7864f;
+  border: 2px solid #3f211a;
+  box-shadow: inset 1px 1px 0 rgba(255,225,169,0.45);
+}
+
+.shop-sign::before { right: 10px; }
+.shop-sign::after { left: 10px; }
+
+.shop-sign p {
+  margin: 2px 0 7px;
+  font-size: clamp(18px, 1.65vw, 24px);
+  font-weight: 700;
+  line-height: 1.28;
+  transform: rotate(0.7deg);
+}
+
+.shop-sign strong {
+  display: block;
+  direction: ltr;
+  padding-top: 5px;
+  color: #ffd081;
+  border-top: 2px dashed rgba(244,184,100,0.56);
+  font-family: "Marhey", "Reem Kufi Ink", sans-serif;
+  font-size: clamp(19px, 1.8vw, 26px);
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  transform: rotate(-0.8deg);
+}
+
+@media (max-width: 1000px) {
+  .shop-sign {
+    top: 58%;
+    left: 18px;
+    width: 225px;
+    padding: 12px 14px 11px;
+  }
+}
+
+@media (max-width: 800px) {
+  .shop-sign {
+    top: 51%;
+    left: 50%;
+    width: min(84vw, 330px);
+    padding: 9px 13px 8px;
+    border-width: 4px;
+    transform: translateX(-50%) rotate(-2deg) skewX(-0.5deg);
+    opacity: 0.9;
+  }
+
+  .shop-sign p {
+    margin-bottom: 4px;
+    font-size: 15px;
+    line-height: 1.25;
+  }
+
+  .shop-sign strong {
+    padding-top: 3px;
+    font-size: 17px;
   }
 }
