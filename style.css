@@ -956,3 +956,100 @@ button:hover {
     animation: none !important;
   }
 }
+
+/* =========================
+   CHALK WALL MESSAGE
+========================= */
+
+.wall-contact {
+  position: absolute;
+  z-index: 1;
+  top: 57%;
+  left: clamp(22px, 4vw, 62px);
+  width: min(270px, 24vw);
+  padding: 8px 10px 10px;
+  direction: rtl;
+  color: rgba(255, 248, 218, 0.88);
+  text-align: center;
+  font-family: "Comic Sans MS", Tahoma, sans-serif;
+  transform: rotate(-2.5deg);
+  text-shadow:
+    1px 0 rgba(255,255,255,0.22),
+    -1px 1px rgba(65,36,20,0.42),
+    0 0 3px rgba(255,245,210,0.26);
+  filter: contrast(0.94);
+  pointer-events: none;
+}
+
+.wall-contact::before,
+.wall-contact::after {
+  content: "";
+  position: absolute;
+  left: 7%;
+  right: 7%;
+  height: 2px;
+  background: repeating-linear-gradient(90deg, rgba(255,248,218,0.62) 0 13px, transparent 13px 18px);
+  opacity: 0.72;
+}
+
+.wall-contact::before { top: 0; transform: rotate(1deg); }
+.wall-contact::after { bottom: 0; transform: rotate(-1deg); }
+
+.wall-contact p {
+  margin: 4px 0 5px;
+  font-size: clamp(14px, 1.45vw, 20px);
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.wall-contact strong {
+  display: block;
+  font-size: clamp(18px, 1.8vw, 25px);
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+.prison-tally {
+  display: block;
+  direction: ltr;
+  margin-bottom: 2px;
+  font-size: clamp(17px, 1.7vw, 24px);
+  letter-spacing: 2px;
+  line-height: 1;
+  opacity: 0.78;
+}
+
+@media (max-width: 1000px) {
+  .wall-contact {
+    top: 59%;
+    left: 18px;
+    width: 210px;
+  }
+}
+
+@media (max-width: 800px) {
+  .wall-contact {
+    top: 52%;
+    left: 50%;
+    width: min(86vw, 330px);
+    padding: 5px 8px 7px;
+    transform: translateX(-50%) rotate(-1.5deg);
+    opacity: 0.78;
+  }
+
+  .wall-contact p {
+    margin: 2px 0 3px;
+    font-size: 13px;
+    line-height: 1.3;
+  }
+
+  .wall-contact strong { font-size: 16px; }
+  .prison-tally { font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  .wall-contact {
+    top: 50%;
+    width: 88vw;
+  }
+}
