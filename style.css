@@ -695,3 +695,62 @@ button:hover {
       rotate(-4deg);
   }
 }
+
+
+/* =========================
+   WAVING HAND CTA
+========================= */
+
+.cta-wrap {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  margin-top: 25px;
+  isolation: isolate;
+}
+
+.cta-wrap button {
+  position: relative;
+  z-index: 2;
+  margin-top: 0;
+}
+
+.waving-hand {
+  position: absolute;
+  z-index: 1;
+  left: 50%;
+  bottom: 36px;
+  width: clamp(120px, 18vw, 165px);
+  aspect-ratio: 11 / 12;
+  transform: translateX(-50%);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.waving-hand svg {
+  display: block;
+  overflow: visible;
+}
+
+@media (max-width: 800px) {
+  .cta-wrap {
+    display: block;
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .cta-wrap button {
+    margin-top: 0;
+  }
+
+  .waving-hand {
+    bottom: 32px;
+    width: clamp(108px, 34vw, 142px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waving-hand {
+    display: none;
+  }
+}
