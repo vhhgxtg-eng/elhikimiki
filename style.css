@@ -60,9 +60,7 @@ body {
 }
 
 
-/* =========================
-   LEFT SIGN - رج مخك
-========================= */
+/* LEFT SIGN */
 
 .sign-1 {
   top: 65px;
@@ -113,7 +111,7 @@ body {
 
 
 /* =========================
-   SIGN PENDULUM
+   SIGN ANIMATION
 ========================= */
 
 @keyframes signPendulum {
@@ -239,7 +237,7 @@ body {
 
 
 /* =========================
-   TITLE + NEW EMOJI
+   TITLE
 ========================= */
 
 .main-title {
@@ -253,7 +251,7 @@ body {
   align-items: center;
   justify-content: center;
 
-  gap: 12px;
+  gap: 4px;
 
   color: #b5281c;
 
@@ -269,24 +267,40 @@ body {
   display: inline-block;
 }
 
+
+/* =========================
+   EMOJI
+========================= */
+
 .title-emoji {
   display: block;
 
-  width: 78px;
-  height: 78px;
+  width: 105px;
+  height: auto;
 
   flex-shrink: 0;
 
-  object-fit: cover;
+  object-fit: contain;
 
-  border-radius: 50%;
+  border: none;
+  outline: none;
+  border-radius: 0;
 
-  box-shadow:
-    0 4px 8px rgba(59, 33, 24, 0.18);
+  box-shadow: none;
 
-  transform: rotate(-5deg);
+  background: transparent;
+
+  margin-right: -8px;
+
+  transform:
+    translateY(-2px)
+    rotate(-4deg);
 }
 
+
+/* =========================
+   DESCRIPTION
+========================= */
 
 .description {
   margin: 0;
@@ -338,7 +352,7 @@ button:hover {
 
 
 /* =========================
-   COUPLE - LAPTOP
+   COUPLE
 ========================= */
 
 .couple-sitting {
@@ -375,7 +389,6 @@ button:hover {
 
   .sign {
     border-width: 4px;
-
     outline-width: 2px;
   }
 
@@ -384,16 +397,12 @@ button:hover {
     left: 20px;
 
     width: 130px;
-
-    transform-origin:
-      50% 0%;
   }
 
   .sign-2 {
     top: 25px;
 
     left: 50%;
-    right: auto;
 
     width: 125px;
 
@@ -418,8 +427,9 @@ button:hover {
   }
 
   .title-emoji {
-    width: 66px;
-    height: 66px;
+    width: 82px;
+
+    margin-right: -6px;
   }
 }
 
@@ -480,9 +490,6 @@ button:hover {
     transform-origin:
       50% 0%;
 
-    transform:
-      rotate(-4deg);
-
     animation:
       signPendulum
       3.7s
@@ -495,7 +502,6 @@ button:hover {
     top: 20px;
 
     left: 50%;
-    right: auto;
 
     width: 74px;
 
@@ -567,7 +573,7 @@ button:hover {
   }
 
 
-  /* TITLE MOBILE */
+  /* TITLE */
 
   .main-title {
     margin:
@@ -575,7 +581,7 @@ button:hover {
       0
       10px;
 
-    gap: 8px;
+    gap: 2px;
 
     font-size: 34px;
 
@@ -585,10 +591,13 @@ button:hover {
   }
 
   .title-emoji {
-    width: 48px;
-    height: 48px;
+    width: 60px;
 
-    border-radius: 50%;
+    margin-right: -5px;
+
+    transform:
+      translateY(-1px)
+      rotate(-4deg);
   }
 
 
@@ -597,6 +606,9 @@ button:hover {
 
     line-height: 1.5;
   }
+
+
+  /* BUTTON */
 
   button {
     width: 100%;
@@ -700,12 +712,13 @@ button:hover {
   .main-title {
     font-size: 30px;
 
-    gap: 6px;
+    gap: 1px;
   }
 
   .title-emoji {
-    width: 42px;
-    height: 42px;
+    width: 54px;
+
+    margin-right: -4px;
   }
 
 
