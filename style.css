@@ -114,24 +114,19 @@ body {
 
 .welcome {
   margin: 0;
-
   font-size: 25px;
   font-weight: bold;
 }
 
 h1 {
   margin: 5px 0 10px;
-
   color: #b5281c;
-
   font-size: 65px;
-
   text-shadow: 3px 3px 0 #f2b35d;
 }
 
 .description {
   margin: 0;
-
   font-size: 24px;
   font-weight: bold;
 }
@@ -141,7 +136,6 @@ h1 {
 
 button {
   margin-top: 25px;
-
   padding: 15px 32px;
 
   color: white;
@@ -206,7 +200,6 @@ button:hover {
 
   .sign-2 {
     top: 25px;
-
     left: 50%;
     right: auto;
 
@@ -238,7 +231,6 @@ button:hover {
 
   body {
     min-height: 100vh;
-
     overflow-x: hidden;
 
     background-position: center top;
@@ -246,14 +238,9 @@ button:hover {
     background-attachment: scroll;
   }
 
-
-  /* MOBILE SIGNS */
-
   .wall-gallery {
     display: block !important;
-
     position: absolute;
-
     z-index: 5;
   }
 
@@ -270,13 +257,11 @@ button:hover {
   .sign-1 {
     top: 14px;
     left: 8px;
-
     width: 76px;
   }
 
   .sign-2 {
     top: 20px;
-
     left: 50%;
     right: auto;
 
@@ -290,12 +275,8 @@ button:hover {
   .sign-3 {
     top: 15px;
     right: 8px;
-
     width: 80px;
   }
-
-
-  /* MOBILE MAIN */
 
   .hero {
     display: flex;
@@ -311,9 +292,6 @@ button:hover {
       10px
       45px;
   }
-
-
-  /* MOBILE CARD */
 
   .content {
     width: calc(100% - 10px);
@@ -362,16 +340,12 @@ button:hover {
       5px 5px 0 #3b2118;
   }
 
-
-  /* MOBILE COUPLE */
-
   .couple-sitting {
     width: min(94vw, 600px);
-
     height: auto;
 
     margin:
-      95px
+      245px
       auto
       0;
 
@@ -390,20 +364,17 @@ button:hover {
   .sign-1 {
     top: 10px;
     left: 6px;
-
     width: 68px;
   }
 
   .sign-2 {
     top: 16px;
-
     width: 66px;
   }
 
   .sign-3 {
     top: 11px;
     right: 6px;
-
     width: 70px;
   }
 
@@ -439,15 +410,12 @@ button:hover {
     font-size: 17px;
   }
 
-
-  /* LOWER COUPLE ON PHONE */
-
   .couple-sitting {
     width: 96vw;
     max-width: 430px;
 
     margin:
-      88px
+      238px
       auto
       0;
   }
