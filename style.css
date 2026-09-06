@@ -386,143 +386,6 @@ button:hover {
 
 
 /* =========================
-   SLEEPING CAT
-========================= */
-
-.sleeping-cat {
-  position: absolute;
-
-  left: 55px;
-  bottom: 28px;
-
-  width: 180px;
-  height: 130px;
-
-  z-index: 3;
-
-  pointer-events: none;
-}
-
-.cat-art {
-  position: relative;
-
-  display: block;
-
-  width: 100%;
-  height: 100%;
-}
-
-.cat-body {
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  display: block;
-
-  width: 165px;
-  height: auto;
-
-  object-fit: contain;
-
-  filter:
-    drop-shadow(
-      0 7px 4px rgba(45, 25, 15, 0.30)
-    );
-}
-
-.cat-part {
-  position: absolute;
-
-  pointer-events: none;
-}
-
-.cat-ear {
-  display: none;
-}
-
-
-/* =========================
-   CAT ZZZ
-========================= */
-
-.snore {
-  position: absolute;
-
-  color: #3b2118;
-
-  font-family: Arial, sans-serif;
-  font-weight: bold;
-
-  opacity: 0;
-
-  animation:
-    catSnore
-    2.8s
-    ease-in-out
-    infinite;
-}
-
-.snore-1 {
-  left: 120px;
-  top: 35px;
-
-  font-size: 18px;
-
-  animation-delay: 0s;
-}
-
-.snore-2 {
-  left: 137px;
-  top: 17px;
-
-  font-size: 21px;
-
-  animation-delay: 0.55s;
-}
-
-.snore-3 {
-  left: 154px;
-  top: -4px;
-
-  font-size: 24px;
-
-  animation-delay: 1.1s;
-}
-
-@keyframes catSnore {
-
-  0% {
-    opacity: 0;
-
-    transform:
-      translateY(8px)
-      scale(0.8);
-  }
-
-  25% {
-    opacity: 1;
-  }
-
-  70% {
-    opacity: 0.9;
-
-    transform:
-      translateY(-8px)
-      scale(1);
-  }
-
-  100% {
-    opacity: 0;
-
-    transform:
-      translateY(-18px)
-      scale(1.1);
-  }
-}
-
-
-/* =========================
    TABLET
 ========================= */
 
@@ -574,17 +437,7 @@ button:hover {
     margin-right: -6px;
   }
 
-  .sleeping-cat {
-    left: 25px;
-    bottom: 20px;
 
-    width: 145px;
-    height: 110px;
-  }
-
-  .cat-body {
-    width: 135px;
-  }
 }
 
 
@@ -813,40 +666,10 @@ button:hover {
 
   /* CAT */
 
-  .sleeping-cat {
-    left: 8px;
-    bottom: 8px;
 
-    width: 115px;
-    height: 90px;
 
-    z-index: 6;
-  }
 
-  .cat-body {
-    width: 108px;
-  }
 
-  .snore-1 {
-    left: 75px;
-    top: 28px;
-
-    font-size: 13px;
-  }
-
-  .snore-2 {
-    left: 87px;
-    top: 13px;
-
-    font-size: 15px;
-  }
-
-  .snore-3 {
-    left: 98px;
-    top: -1px;
-
-    font-size: 17px;
-  }
 }
 
 
@@ -949,40 +772,10 @@ button:hover {
 
   /* CAT */
 
-  .sleeping-cat {
-    left: 4px;
-    bottom: 5px;
 
-    width: 95px;
-    height: 75px;
 
-    z-index: 6;
-  }
 
-  .cat-body {
-    width: 92px;
-  }
 
-  .snore-1 {
-    left: 62px;
-    top: 24px;
-
-    font-size: 11px;
-  }
-
-  .snore-2 {
-    left: 73px;
-    top: 11px;
-
-    font-size: 13px;
-  }
-
-  .snore-3 {
-    left: 82px;
-    top: -1px;
-
-    font-size: 15px;
-  }
 }
 
 
@@ -999,9 +792,66 @@ button:hover {
       rotate(-4deg);
   }
 
-  .snore {
-    animation: none;
+}
 
-    opacity: 0;
-  }
+/* Cat artwork and mouth share one responsive coordinate system. */
+.sleeping-cat {
+  position: fixed;
+  left: 55px;
+  bottom: 28px;
+  width: 180px;
+  z-index: 6;
+  pointer-events: none;
+}
+.cat-art {
+  position: relative;
+  width: 100%;
+  transform-origin: 50% 85%;
+  animation: catBreathe 3.2s ease-in-out infinite;
+}
+.cat-body {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 7px 4px rgba(45, 25, 15, .30));
+}
+.snore {
+  position: absolute;
+  left: 31%;
+  top: 63%;
+  color: #3b2118;
+  font: bold 20px/1 Arial, sans-serif;
+  direction: ltr;
+  text-shadow: -1px -1px 0 #fff2c8, 1px -1px 0 #fff2c8,
+    -1px 1px 0 #fff2c8, 1px 1px 0 #fff2c8;
+  opacity: 0;
+  animation: catSnore 3s linear infinite;
+}
+.snore-1 { animation-delay: -1s; }
+.snore-2 { animation-delay: -2s; }
+.snore-3 { animation-delay: -3s; }
+@keyframes catBreathe {
+  0%, 100% { transform: scale(1, 1); }
+  50% { transform: scale(1.025, 1.055); }
+}
+@keyframes catSnore {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(.55); }
+  12% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; transform: translate(1em, -3.8em) scale(1.2); }
+}
+@media (max-width: 1000px) {
+  .sleeping-cat { left: 25px; bottom: 20px; width: 145px; }
+}
+@media (max-width: 800px) {
+  .sleeping-cat { position: absolute; left: 8px; bottom: 8px; width: 115px; }
+  .snore { font-size: 17px; }
+}
+@media (max-width: 480px) {
+  .sleeping-cat { left: 4px; bottom: 5px; width: 105px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cat-art { animation: none; }
+  .snore { animation: none; opacity: 1; transform: translate(-50%, -160%); }
+  .snore-2, .snore-3 { visibility: hidden; }
 }
