@@ -790,66 +790,6 @@ button:hover {
   margin: 0;
 }
 
-.couple-effects {
-  position: absolute;
-  inset: 0;
-  z-index: 5;
-  pointer-events: none;
-}
-
-.woman-blink,
-.woman-blink::after {
-  position: absolute;
-  width: 13px;
-  height: 9px;
-  border-radius: 0 0 11px 11px;
-  background: #d89a73;
-  border-bottom: 3px solid #2f1b13;
-  opacity: 0;
-  transform: scaleY(0.12);
-  transform-origin: 50% 100%;
-  animation: womanBlink 4.4s ease-in-out infinite;
-}
-
-.woman-blink {
-  left: 25.2%;
-  top: 37.2%;
-}
-
-.woman-blink::after {
-  content: "";
-  left: 19px;
-  top: -1px;
-}
-
-.tea-steam {
-  position: absolute;
-  left: 84.7%;
-  top: 36.8%;
-  width: 12px;
-  height: 28px;
-  border-left: 3px solid rgba(255, 245, 215, 0.9);
-  border-radius: 50%;
-  opacity: 0;
-  filter: drop-shadow(1px 1px 0 rgba(59, 33, 24, 0.28));
-  animation: teaSteam 2.8s ease-out infinite;
-}
-
-.steam-2 { margin-left: 8px; animation-delay: 0.9s; }
-.steam-3 { margin-left: -7px; animation-delay: 1.8s; }
-
-@keyframes womanBlink {
-  0%, 44%, 49%, 100% { opacity: 0; transform: scaleY(0.12); }
-  45.5%, 47.5% { opacity: 1; transform: scaleY(1); }
-}
-
-@keyframes teaSteam {
-  0% { opacity: 0; transform: translate(0, 5px) scale(0.55) rotate(-10deg); }
-  18% { opacity: 0.92; }
-  55% { opacity: 0.68; transform: translate(4px, -15px) scale(0.9) rotate(5deg); }
-  100% { opacity: 0; transform: translate(9px, -35px) scale(1.2) rotate(14deg); }
-}
-
 @media (max-width: 800px) {
   .couple-scene {
     position: absolute;
@@ -877,12 +817,6 @@ button:hover {
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .woman-blink,
-  .tea-steam {
-    animation: none;
-  }
-}
 
 
 /* Grounded shadows for the illustrated characters */
