@@ -28,6 +28,9 @@ body {
   background-size: cover;
 }
 
+
+/* SIGNS */
+
 .wall-gallery {
   position: fixed;
   inset: 0;
@@ -39,9 +42,11 @@ body {
   position: absolute;
   display: block;
   object-fit: cover;
+
   border: 7px solid #4b2918;
   outline: 3px solid #1f110c;
   border-radius: 4px;
+
   box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
 }
 
@@ -54,9 +59,9 @@ body {
 
 .sign-2 {
   top: 85px;
-  right: 380px;
+  left: 50%;
   width: 170px;
-  transform: rotate(4deg);
+  transform: translateX(-50%) rotate(4deg);
 }
 
 .sign-3 {
@@ -66,29 +71,37 @@ body {
   transform: rotate(-3deg);
 }
 
+
+/* MAIN */
+
 .hero {
   position: relative;
   z-index: 2;
+
   min-height: 100vh;
 
   display: flex;
-  direction: ltr;
-
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  gap: 25px;
-  padding: 40px;
+  padding: 170px 30px 40px;
 }
+
+
+/* CARD */
 
 .content {
   position: relative;
+  z-index: 3;
+
   direction: rtl;
 
   width: 100%;
   max-width: 650px;
 
   padding: 35px;
+
   text-align: center;
 
   background: rgba(255, 242, 200, 0.94);
@@ -101,25 +114,31 @@ body {
 
 .welcome {
   margin: 0;
+
   font-size: 25px;
   font-weight: bold;
 }
 
 h1 {
   margin: 5px 0 10px;
+
   color: #b5281c;
+
   font-size: 65px;
+
   text-shadow: 3px 3px 0 #f2b35d;
 }
 
 .description {
   margin: 0;
+
   font-size: 24px;
   font-weight: bold;
 }
 
 button {
   margin-top: 25px;
+
   padding: 15px 32px;
 
   color: white;
@@ -141,68 +160,23 @@ button:hover {
   transform: translateY(-3px);
 }
 
-.content .woman {
-  position: absolute;
 
-  width: 180px;
-  max-width: 180px;
-  height: auto;
+/* NEW SITTING COUPLE */
 
-  left: 50%;
-  top: calc(100% + 18px);
-
-  transform: translateX(-50%);
-
-  z-index: 5;
-
-  object-fit: contain;
-  pointer-events: none;
-}
-
-.character {
+.couple-sitting {
   position: relative;
-
-  flex: 0 0 240px;
-
-  align-self: flex-end;
-
-  margin-bottom: -25px;
-}
-
-.character .man {
-  position: relative;
-  z-index: 2;
+  z-index: 4;
 
   display: block;
 
-  width: 240px;
-  max-width: 240px;
+  width: min(560px, 72vw);
   height: auto;
 
-  max-height: 65vh;
-
   object-fit: contain;
-}
 
-.character::after {
-  content: "";
+  margin: 30px auto 0;
 
-  position: absolute;
-
-  width: 175px;
-  height: 28px;
-
-  left: 50%;
-  bottom: 4px;
-
-  transform: translateX(-50%);
-
-  background: rgba(45, 25, 15, 0.28);
-
-  border-radius: 50%;
-  filter: blur(8px);
-
-  z-index: 1;
+  filter: drop-shadow(0 12px 7px rgba(45, 25, 15, 0.35));
 }
 
 
@@ -222,11 +196,10 @@ button:hover {
   }
 
   .sign-2 {
-    top: 30px;
+    top: 25px;
     left: 50%;
     right: auto;
     width: 125px;
-
     transform: translateX(-50%) rotate(3deg);
   }
 
@@ -235,6 +208,10 @@ button:hover {
     right: 20px;
     width: 130px;
   }
+
+  .hero {
+    padding-top: 150px;
+  }
 }
 
 
@@ -242,14 +219,8 @@ button:hover {
 
 @media (max-width: 800px) {
 
-  html,
-  body {
-    min-height: 100%;
-  }
-
   body {
     min-height: 100vh;
-    overflow-x: hidden;
 
     background-position: center top;
     background-size: cover;
@@ -258,9 +229,8 @@ button:hover {
 
   .wall-gallery {
     display: block !important;
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1;
+    position: absolute;
+    z-index: 5;
   }
 
   .sign {
@@ -273,51 +243,44 @@ button:hover {
   }
 
   .sign-1 {
-    top: 14px !important;
-    left: 8px !important;
+    top: 14px;
+    left: 8px;
 
-    width: 76px !important;
-
-    transform: rotate(-4deg) !important;
+    width: 76px;
   }
 
   .sign-2 {
-    top: 20px !important;
+    top: 20px;
+    left: 50%;
 
-    left: 50% !important;
-    right: auto !important;
+    width: 74px;
 
-    width: 74px !important;
-
-    transform: translateX(-50%) rotate(3deg) !important;
+    transform: translateX(-50%) rotate(3deg);
   }
 
   .sign-3 {
-    top: 15px !important;
-    right: 8px !important;
+    top: 15px;
+    right: 8px;
 
-    width: 80px !important;
-
-    transform: rotate(-3deg) !important;
+    width: 80px;
   }
 
   .hero {
-    position: relative;
+    display: flex;
+    flex-direction: column;
 
-    display: block;
+    justify-content: flex-start;
 
     min-height: 100vh;
 
-    padding: 110px 12px 330px;
+    padding: 110px 10px 45px;
   }
 
   .content {
-    position: relative;
+    width: calc(100% - 10px);
+    max-width: 680px;
 
-    width: 100%;
-    max-width: 100%;
-
-    padding: 24px 16px 25px;
+    padding: 24px 16px 26px;
 
     border-width: 3px;
     border-radius: 20px;
@@ -330,7 +293,7 @@ button:hover {
   }
 
   h1 {
-    margin: 7px 0 10px;
+    margin: 8px 0 10px;
 
     font-size: 34px;
     line-height: 1.15;
@@ -353,58 +316,12 @@ button:hover {
     box-shadow: 5px 5px 0 #3b2118;
   }
 
-  .content .woman {
-    position: absolute !important;
+  .couple-sitting {
+    width: min(94vw, 600px);
 
-    width: 110px !important;
-    max-width: 110px !important;
-    height: auto !important;
+    margin: 35px auto 0;
 
-    left: 25% !important;
-    right: auto !important;
-
-    top: calc(100% + 30px) !important;
-    bottom: auto !important;
-
-    margin: 0 !important;
-
-    transform: translateX(-50%) !important;
-
-    z-index: 5;
-  }
-
-  .character {
-    position: absolute !important;
-
-    width: 130px !important;
-
-    right: 8% !important;
-    left: auto !important;
-
-    top: 405px !important;
-
-    margin: 0 !important;
-
-    flex: none !important;
-  }
-
-  .character .man {
-    display: block;
-
-    width: 130px !important;
-    max-width: 130px !important;
-    height: auto !important;
-
-    max-height: none !important;
-  }
-
-  .character::after {
-    width: 95px;
-    height: 16px;
-
-    bottom: 0;
-
-    filter: blur(6px);
+    filter: drop-shadow(0 10px 6px rgba(45, 25, 15, 0.38));
   }
 }
 
@@ -414,27 +331,29 @@ button:hover {
 @media (max-width: 480px) {
 
   .sign-1 {
-    top: 10px !important;
-    left: 6px !important;
-    width: 68px !important;
+    top: 10px;
+    left: 6px;
+    width: 68px;
   }
 
   .sign-2 {
-    top: 16px !important;
-    width: 66px !important;
+    top: 16px;
+    width: 66px;
   }
 
   .sign-3 {
-    top: 11px !important;
-    right: 6px !important;
-    width: 70px !important;
+    top: 11px;
+    right: 6px;
+    width: 70px;
   }
 
   .hero {
-    padding: 95px 10px 320px;
+    padding: 95px 8px 40px;
   }
 
   .content {
+    width: 100%;
+
     padding: 21px 12px 23px;
   }
 
@@ -454,29 +373,10 @@ button:hover {
     font-size: 17px;
   }
 
-  .content .woman {
-    width: 100px !important;
-    max-width: 100px !important;
+  .couple-sitting {
+    width: 96vw;
+    max-width: 430px;
 
-    left: 25% !important;
-
-    top: calc(100% + 25px) !important;
-  }
-
-  .character {
-    width: 120px !important;
-
-    right: 6% !important;
-
-    top: 375px !important;
-  }
-
-  .character .man {
-    width: 120px !important;
-    max-width: 120px !important;
-  }
-
-  .character::after {
-    width: 88px;
+    margin-top: 28px;
   }
 }
