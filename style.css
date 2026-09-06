@@ -725,6 +725,7 @@ button:hover {
   transform: translateX(-50%);
   pointer-events: none;
   overflow: visible;
+  animation: handPeek 3.2s ease-in-out both;
 }
 
 .waving-hand svg {
@@ -753,4 +754,11 @@ button:hover {
   .waving-hand {
     display: none;
   }
+}
+
+
+@keyframes handPeek {
+  0% { opacity: 0; transform: translateX(-50%) translateY(82%); }
+  12%, 82% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(82%); }
 }
