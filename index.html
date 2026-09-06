@@ -115,7 +115,7 @@
         ? { t, s: [s] }
         : { t, s: [s], e: [e], ...easing });
 
-      window.lottie.loadAnimation({
+      const wave = window.lottie.loadAnimation({
         container,
         renderer: 'svg',
         loop: false,
@@ -154,6 +154,7 @@
           ]
         }
       });
+      wave.addEventListener('complete', () => { container.style.display = 'none'; });
     })();
   </script>
 
