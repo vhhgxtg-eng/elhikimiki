@@ -118,7 +118,9 @@
 
 
     <!-- القطة النايمة -->
-    <div class="sleeping-cat">
+    <div class="sleeping-cat" role="button" tabindex="0" aria-label="صحّي القطة">
+
+      <span class="cat-speech" role="status" aria-live="polite"></span>
 
       <div class="cat-art">
 
@@ -130,6 +132,8 @@
           alt="قطة نايمة"
         >
 
+        <span class="cat-eye cat-eye-left" aria-hidden="true"></span>
+        <span class="cat-eye cat-eye-right" aria-hidden="true"></span>
         <span class="snore snore-1" aria-hidden="true">Z</span>
 
         <span class="snore snore-2" aria-hidden="true">Z</span>
@@ -144,6 +148,29 @@
   </main>
 
 
+  <script>
+    const cat = document.querySelector('.sleeping-cat');
+    const catSpeech = cat.querySelector('.cat-speech');
+    let catSleepTimer;
+
+    function wakeCat() {
+      clearTimeout(catSleepTimer);
+      cat.classList.add('is-angry');
+      catSpeech.textContent = 'سبني انام دا انت رخم';
+      catSleepTimer = setTimeout(() => {
+        cat.classList.remove('is-angry');
+        catSpeech.textContent = '';
+      }, 4000);
+    }
+
+    cat.addEventListener('click', wakeCat);
+    cat.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        wakeCat();
+      }
+    });
+  </script>
 </body>
 
 </html>

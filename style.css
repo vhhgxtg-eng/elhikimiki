@@ -813,7 +813,10 @@ button:hover {
   bottom: 28px;
   width: 180px;
   z-index: 6;
-  pointer-events: none;
+  pointer-events: auto;
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .cat-art {
   position: relative;
@@ -867,3 +870,63 @@ button:hover {
   .snore { animation: none; opacity: 1; transform: translate(-50%, -160%); }
   .snore-2, .snore-3 { visibility: hidden; }
 }
+
+/* A brief annoyed expression when the sleeping cat is tapped. */
+.sleeping-cat:focus-visible { outline: 3px solid #fff2c8; outline-offset: 3px; border-radius: 12px; }
+.cat-speech {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  width: 205px;
+  max-width: calc(100vw - 24px);
+  padding: 10px 12px;
+  border: 2px solid #3b2118;
+  border-radius: 16px;
+  background: #fff2c8;
+  color: #3b2118;
+  box-shadow: 3px 3px 0 rgba(59,33,24,.65);
+  font: bold 16px/1.6 Tahoma, Arial, sans-serif;
+  text-align: center;
+  direction: rtl;
+  visibility: hidden;
+  pointer-events: none;
+}
+.cat-speech::after {
+  content: '';
+  position: absolute;
+  left: 26px;
+  bottom: -9px;
+  width: 14px;
+  height: 14px;
+  background: #fff2c8;
+  border-right: 2px solid #3b2118;
+  border-bottom: 2px solid #3b2118;
+  transform: rotate(45deg);
+}
+.cat-eye {
+  display: none;
+  position: absolute;
+  width: 10%;
+  height: 7%;
+  background: #d9df75;
+  border: 2px solid #42220e;
+  border-top-width: 3px;
+  border-radius: 10% 10% 65% 65%;
+  transform: rotate(-20deg);
+}
+.cat-eye::after {
+  content: '';
+  position: absolute;
+  left: 46%;
+  top: 0;
+  height: 90%;
+  width: 15%;
+  background: #231408;
+  border-radius: 50%;
+}
+.cat-eye-left { left: 12%; top: 54%; transform: rotate(12deg); }
+.cat-eye-right { left: 30%; top: 44%; transform: rotate(-40deg); }
+.is-angry .cat-eye { display: block; }
+.is-angry .cat-speech { visibility: visible; }
+.is-angry .snore { visibility: hidden; }
+.is-angry .cat-art { animation-play-state: paused; }
