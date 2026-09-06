@@ -48,89 +48,101 @@ body {
   border-radius: 4px;
 
   box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
-
-  will-change: transform;
 }
+
+
+/* LEFT SIGN - رج مخك */
 
 .sign-1 {
   top: 65px;
   left: 230px;
   width: 170px;
-  transform: rotate(-4deg);
+
+  transform-origin: top center;
+
+  animation:
+    brainSignDropDesktop
+    1.9s
+    cubic-bezier(0.22, 0.8, 0.3, 1)
+    0.35s
+    both;
 }
+
+
+/* CENTER SIGN */
 
 .sign-2 {
   top: 85px;
   left: 50%;
   width: 170px;
 
-  transform-origin: top center;
-
-  animation:
-    signDropDesktop 1.8s
-    cubic-bezier(0.22, 0.8, 0.3, 1)
-    0.35s
-    both;
+  transform:
+    translateX(-50%)
+    rotate(4deg);
 }
+
+
+/* RIGHT SIGN */
 
 .sign-3 {
   top: 110px;
   right: 90px;
   width: 195px;
+
   transform: rotate(-3deg);
 }
 
 
-/* REALISTIC SIGN DROP - DESKTOP */
+/* REALISTIC LEFT SIGN DROP */
 
-@keyframes signDropDesktop {
+@keyframes brainSignDropDesktop {
 
   0% {
     opacity: 0;
 
     transform:
-      translateX(-50%)
-      translateY(-170px)
-      rotate(18deg);
+      translateY(-180px)
+      rotate(-18deg);
   }
 
-  42% {
+  40% {
     opacity: 1;
 
     transform:
-      translateX(-50%)
-      translateY(8px)
-      rotate(-9deg);
+      translateY(10px)
+      rotate(10deg);
   }
 
-  58% {
+  57% {
     transform:
-      translateX(-50%)
-      translateY(-3px)
-      rotate(7deg);
+      translateY(-4px)
+      rotate(-8deg);
   }
 
-  72% {
+  71% {
     transform:
-      translateX(-50%)
       translateY(2px)
-      rotate(-4deg);
+      rotate(5deg);
   }
 
-  84% {
+  83% {
     transform:
-      translateX(-50%)
+      translateY(-1px)
+      rotate(-6deg);
+  }
+
+  92% {
+    transform:
       translateY(0)
-      rotate(2deg);
+      rotate(-3deg);
   }
 
   100% {
     opacity: 1;
 
     transform:
-      translateX(-50%)
       translateY(0)
-      rotate(4deg);
+      rotate(-4deg);
   }
 }
 
@@ -275,7 +287,9 @@ button:hover {
 
     width: 125px;
 
-    transform-origin: top center;
+    transform:
+      translateX(-50%)
+      rotate(3deg);
   }
 
   .sign-3 {
@@ -310,7 +324,7 @@ button:hover {
   }
 
 
-  /* SIGNS */
+  /* MOBILE SIGNS */
 
   .wall-gallery {
     display: block !important;
@@ -332,6 +346,15 @@ button:hover {
     top: 14px;
     left: 8px;
     width: 76px;
+
+    transform-origin: top center;
+
+    animation:
+      brainSignDropMobile
+      1.7s
+      cubic-bezier(0.22, 0.8, 0.3, 1)
+      0.3s
+      both;
   }
 
   .sign-2 {
@@ -341,13 +364,9 @@ button:hover {
 
     width: 74px;
 
-    transform-origin: top center;
-
-    animation:
-      signDropMobile 1.7s
-      cubic-bezier(0.22, 0.8, 0.3, 1)
-      0.3s
-      both;
+    transform:
+      translateX(-50%)
+      rotate(3deg);
   }
 
   .sign-3 {
@@ -357,56 +376,56 @@ button:hover {
   }
 
 
-  /* REALISTIC SIGN DROP - MOBILE */
+  /* REALISTIC MOBILE DROP */
 
-  @keyframes signDropMobile {
+  @keyframes brainSignDropMobile {
 
     0% {
       opacity: 0;
 
       transform:
-        translateX(-50%)
         translateY(-110px)
-        rotate(16deg);
+        rotate(-17deg);
     }
 
-    44% {
+    42% {
       opacity: 1;
 
       transform:
-        translateX(-50%)
-        translateY(6px)
-        rotate(-8deg);
+        translateY(7px)
+        rotate(9deg);
     }
 
-    61% {
+    59% {
       transform:
-        translateX(-50%)
-        translateY(-2px)
-        rotate(6deg);
+        translateY(-3px)
+        rotate(-7deg);
     }
 
-    76% {
+    73% {
       transform:
-        translateX(-50%)
-        translateY(1px)
-        rotate(-3deg);
+        translateY(2px)
+        rotate(4deg);
     }
 
-    88% {
+    85% {
       transform:
-        translateX(-50%)
         translateY(0)
-        rotate(1deg);
+        rotate(-6deg);
+    }
+
+    93% {
+      transform:
+        translateY(0)
+        rotate(-3deg);
     }
 
     100% {
       opacity: 1;
 
       transform:
-        translateX(-50%)
         translateY(0)
-        rotate(3deg);
+        rotate(-4deg);
     }
   }
 
@@ -586,7 +605,8 @@ button:hover {
 
 @media (prefers-reduced-motion: reduce) {
 
-  .sign-2 {
+  .sign-1 {
     animation: none;
+    transform: rotate(-4deg);
   }
 }
