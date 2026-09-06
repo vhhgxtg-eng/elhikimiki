@@ -659,7 +659,7 @@ button:hover {
   }
 
   .welcome {
-    font-size: 17px;
+    font-size: 14px;
   }
 
   h1 {
@@ -1051,8 +1051,8 @@ button:hover {
 
 @media (max-width: 480px) {
   .wall-contact {
-    top: 50%;
-    width: 88vw;
+    top: 51%;
+    width: min(64vw, 230px);
   }
 }
 
@@ -1226,17 +1226,17 @@ button:hover {
   .shop-sign {
     top: 51%;
     left: 50%;
-    width: min(84vw, 330px);
-    padding: 9px 13px 8px;
-    border-width: 4px;
+    width: min(62vw, 240px);
+    padding: 6px 9px 6px;
+    border-width: 3px;
     transform: translateX(-50%) rotate(-2deg) skewX(-0.5deg);
     opacity: 0.9;
   }
 
   .shop-sign p {
     margin-bottom: 4px;
-    font-size: 15px;
-    line-height: 1.25;
+    font-size: 12px;
+    line-height: 1.2;
   }
 
   .shop-sign strong {
