@@ -1225,7 +1225,7 @@ button:hover {
 @media (max-width: 800px) {
   .shop-sign {
     top: 51%;
-    left: 50%;
+    left: 47%;
     width: min(62vw, 240px);
     padding: 6px 9px 6px;
     border-width: 3px;
@@ -1235,12 +1235,12 @@ button:hover {
 
   .shop-sign p {
     margin-bottom: 4px;
-    font-size: 12px;
+    font-size: 11px;
     line-height: 1.2;
   }
 
   .shop-sign strong {
     padding-top: 3px;
-    font-size: 17px;
+    font-size: 15px;
   }
 }
