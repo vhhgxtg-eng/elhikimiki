@@ -136,6 +136,9 @@ h1 {
   font-weight: bold;
 }
 
+
+/* BUTTON */
+
 button {
   margin-top: 25px;
 
@@ -153,6 +156,10 @@ button {
   font-weight: bold;
 
   cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
 }
 
 button:hover {
@@ -161,7 +168,7 @@ button:hover {
 }
 
 
-/* NEW SITTING COUPLE */
+/* SITTING COUPLE - LAPTOP */
 
 .couple-sitting {
   position: relative;
@@ -176,7 +183,9 @@ button:hover {
 
   margin: 30px auto 0;
 
-  filter: drop-shadow(0 12px 7px rgba(45, 25, 15, 0.35));
+  filter: drop-shadow(
+    0 12px 7px rgba(45, 25, 15, 0.35)
+  );
 }
 
 
@@ -197,9 +206,12 @@ button:hover {
 
   .sign-2 {
     top: 25px;
+
     left: 50%;
     right: auto;
+
     width: 125px;
+
     transform: translateX(-50%) rotate(3deg);
   }
 
@@ -219,17 +231,29 @@ button:hover {
 
 @media (max-width: 800px) {
 
+  html,
+  body {
+    min-height: 100%;
+  }
+
   body {
     min-height: 100vh;
+
+    overflow-x: hidden;
 
     background-position: center top;
     background-size: cover;
     background-attachment: scroll;
   }
 
+
+  /* MOBILE SIGNS */
+
   .wall-gallery {
     display: block !important;
+
     position: absolute;
+
     z-index: 5;
   }
 
@@ -239,7 +263,8 @@ button:hover {
     border-width: 3px;
     outline-width: 1px;
 
-    box-shadow: 3px 4px 0 rgba(38, 19, 10, 0.35);
+    box-shadow:
+      3px 4px 0 rgba(38, 19, 10, 0.35);
   }
 
   .sign-1 {
@@ -251,11 +276,15 @@ button:hover {
 
   .sign-2 {
     top: 20px;
+
     left: 50%;
+    right: auto;
 
     width: 74px;
 
-    transform: translateX(-50%) rotate(3deg);
+    transform:
+      translateX(-50%)
+      rotate(3deg);
   }
 
   .sign-3 {
@@ -265,27 +294,41 @@ button:hover {
     width: 80px;
   }
 
+
+  /* MOBILE MAIN */
+
   .hero {
     display: flex;
     flex-direction: column;
 
+    align-items: center;
     justify-content: flex-start;
 
     min-height: 100vh;
 
-    padding: 110px 10px 45px;
+    padding:
+      110px
+      10px
+      45px;
   }
+
+
+  /* MOBILE CARD */
 
   .content {
     width: calc(100% - 10px);
     max-width: 680px;
 
-    padding: 24px 16px 26px;
+    padding:
+      24px
+      16px
+      26px;
 
     border-width: 3px;
     border-radius: 20px;
 
-    box-shadow: 7px 7px 0 rgba(59, 33, 24, 0.9);
+    box-shadow:
+      7px 7px 0 rgba(59, 33, 24, 0.9);
   }
 
   .welcome {
@@ -309,19 +352,33 @@ button:hover {
 
     margin-top: 20px;
 
-    padding: 13px 15px;
+    padding:
+      13px
+      15px;
 
     font-size: 18px;
 
-    box-shadow: 5px 5px 0 #3b2118;
+    box-shadow:
+      5px 5px 0 #3b2118;
   }
+
+
+  /* MOBILE COUPLE */
 
   .couple-sitting {
     width: min(94vw, 600px);
 
-    margin: 35px auto 0;
+    height: auto;
 
-    filter: drop-shadow(0 10px 6px rgba(45, 25, 15, 0.38));
+    margin:
+      95px
+      auto
+      0;
+
+    filter:
+      drop-shadow(
+        0 10px 6px rgba(45, 25, 15, 0.38)
+      );
   }
 }
 
@@ -333,28 +390,37 @@ button:hover {
   .sign-1 {
     top: 10px;
     left: 6px;
+
     width: 68px;
   }
 
   .sign-2 {
     top: 16px;
+
     width: 66px;
   }
 
   .sign-3 {
     top: 11px;
     right: 6px;
+
     width: 70px;
   }
 
   .hero {
-    padding: 95px 8px 40px;
+    padding:
+      95px
+      8px
+      40px;
   }
 
   .content {
     width: 100%;
 
-    padding: 21px 12px 23px;
+    padding:
+      21px
+      12px
+      23px;
   }
 
   .welcome {
@@ -373,10 +439,16 @@ button:hover {
     font-size: 17px;
   }
 
+
+  /* LOWER COUPLE ON PHONE */
+
   .couple-sitting {
     width: 96vw;
     max-width: 430px;
 
-    margin-top: 28px;
+    margin:
+      88px
+      auto
+      0;
   }
 }
