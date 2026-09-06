@@ -720,7 +720,7 @@ button:hover {
 
 .snore {
   position: absolute;
-  right: -2px;
+  left: 5px;
   top: 8px;
   color: #2f1b13;
   font-family: Tahoma, Arial, sans-serif;
@@ -745,7 +745,7 @@ button:hover {
   0% { opacity: 0; transform: translate(0, 12px) rotate(-8deg) scale(0.7); }
   18% { opacity: 1; }
   72% { opacity: 0.95; }
-  100% { opacity: 0; transform: translate(42px, -62px) rotate(10deg) scale(1.18); }
+  100% { opacity: 0; transform: translate(-28px, -62px) rotate(10deg) scale(1.18); }
 }
 
 @media (max-width: 800px) {
@@ -755,7 +755,7 @@ button:hover {
     width: clamp(98px, 29vw, 126px);
   }
 
-  .snore { right: -4px; top: 2px; }
+  .snore { left: 3px; top: 2px; }
   .snore-1 { font-size: 15px; }
   .snore-2 { font-size: 20px; }
   .snore-3 { font-size: 25px; }
