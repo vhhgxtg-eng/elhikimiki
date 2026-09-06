@@ -12,7 +12,9 @@ body {
 body {
   min-height: 100vh;
   overflow-x: hidden;
+
   font-family: Tahoma, Arial, sans-serif;
+
   color: #2f1b13;
   background-color: #b87935;
 
@@ -29,25 +31,32 @@ body {
 }
 
 
-/* SIGNS */
+/* =========================
+   SIGNS
+========================= */
 
 .wall-gallery {
   position: fixed;
   inset: 0;
+
   z-index: 1;
+
   pointer-events: none;
 }
 
 .sign {
   position: absolute;
+
   display: block;
+
   object-fit: cover;
 
   border: 7px solid #4b2918;
   outline: 3px solid #1f110c;
   border-radius: 4px;
 
-  box-shadow: 7px 9px 0 rgba(38, 19, 10, 0.45);
+  box-shadow:
+    7px 9px 0 rgba(38, 19, 10, 0.45);
 }
 
 
@@ -56,15 +65,18 @@ body {
 .sign-1 {
   top: 65px;
   left: 230px;
+
   width: 170px;
 
-  transform-origin: top center;
+  transform: rotate(-4deg);
+
+  transform-origin: 50% 0%;
 
   animation:
-    brainSignDropDesktop
-    1.9s
-    cubic-bezier(0.22, 0.8, 0.3, 1)
-    0.35s
+    earthquakeSwingDesktop
+    2.8s
+    cubic-bezier(0.22, 0.75, 0.32, 1)
+    0.6s
     both;
 }
 
@@ -74,6 +86,7 @@ body {
 .sign-2 {
   top: 85px;
   left: 50%;
+
   width: 170px;
 
   transform:
@@ -87,87 +100,166 @@ body {
 .sign-3 {
   top: 110px;
   right: 90px;
+
   width: 195px;
 
   transform: rotate(-3deg);
 }
 
 
-/* REALISTIC LEFT SIGN DROP */
+/* =========================
+   REALISTIC EARTHQUAKE SWING
+   DESKTOP
+========================= */
 
-@keyframes brainSignDropDesktop {
+@keyframes earthquakeSwingDesktop {
 
   0% {
-    opacity: 0;
-
     transform:
-      translateY(-180px)
-      rotate(-18deg);
+      translateX(0)
+      translateY(0)
+      rotate(-4deg);
   }
 
-  40% {
-    opacity: 1;
-
+  4% {
     transform:
-      translateY(10px)
-      rotate(10deg);
+      translateX(2px)
+      translateY(0)
+      rotate(-2deg);
   }
 
-  57% {
+  8% {
     transform:
-      translateY(-4px)
-      rotate(-8deg);
-  }
-
-  71% {
-    transform:
-      translateY(2px)
-      rotate(5deg);
-  }
-
-  83% {
-    transform:
-      translateY(-1px)
+      translateX(-3px)
+      translateY(1px)
       rotate(-6deg);
   }
 
-  92% {
+  12% {
     transform:
+      translateX(3px)
+      translateY(1px)
+      rotate(-1deg);
+  }
+
+  16% {
+    transform:
+      translateX(-2px)
+      translateY(2px)
+      rotate(-7deg);
+  }
+
+  21% {
+    transform:
+      translateX(1px)
+      translateY(3px)
+      rotate(-3deg);
+  }
+
+  27% {
+    transform:
+      translateX(0)
+      translateY(6px)
+      rotate(15deg);
+  }
+
+  39% {
+    transform:
+      translateX(0)
+      translateY(6px)
+      rotate(-13deg);
+  }
+
+  50% {
+    transform:
+      translateX(0)
+      translateY(5px)
+      rotate(10deg);
+  }
+
+  60% {
+    transform:
+      translateX(0)
+      translateY(4px)
+      rotate(-9deg);
+  }
+
+  69% {
+    transform:
+      translateX(0)
+      translateY(3px)
+      rotate(7deg);
+  }
+
+  77% {
+    transform:
+      translateX(0)
+      translateY(2px)
+      rotate(-7deg);
+  }
+
+  84% {
+    transform:
+      translateX(0)
+      translateY(1px)
+      rotate(5deg);
+  }
+
+  90% {
+    transform:
+      translateX(0)
+      translateY(1px)
+      rotate(-5deg);
+  }
+
+  95% {
+    transform:
+      translateX(0)
       translateY(0)
       rotate(-3deg);
   }
 
   100% {
-    opacity: 1;
-
     transform:
+      translateX(0)
       translateY(0)
       rotate(-4deg);
   }
 }
 
 
-/* MAIN */
+/* =========================
+   MAIN
+========================= */
 
 .hero {
   position: relative;
+
   z-index: 2;
 
   min-height: 100vh;
 
   display: flex;
+
   flex-direction: column;
+
   align-items: center;
   justify-content: center;
 
-  padding: 170px 30px 40px;
+  padding:
+    170px
+    30px
+    40px;
 }
 
 
-/* CARD */
+/* =========================
+   CARD
+========================= */
 
 .content {
   position: relative;
+
   z-index: 3;
 
   direction: rtl;
@@ -179,12 +271,16 @@ body {
 
   text-align: center;
 
-  background: rgba(255, 242, 200, 0.94);
+  background:
+    rgba(255, 242, 200, 0.94);
 
-  border: 4px solid #3b2118;
+  border:
+    4px solid #3b2118;
+
   border-radius: 24px;
 
-  box-shadow: 10px 10px 0 rgba(59, 33, 24, 0.9);
+  box-shadow:
+    10px 10px 0 rgba(59, 33, 24, 0.9);
 }
 
 .welcome {
@@ -195,13 +291,17 @@ body {
 }
 
 h1 {
-  margin: 5px 0 10px;
+  margin:
+    5px
+    0
+    10px;
 
   color: #b5281c;
 
   font-size: 65px;
 
-  text-shadow: 3px 3px 0 #f2b35d;
+  text-shadow:
+    3px 3px 0 #f2b35d;
 }
 
 .description {
@@ -212,20 +312,28 @@ h1 {
 }
 
 
-/* BUTTON */
+/* =========================
+   BUTTON
+========================= */
 
 button {
   margin-top: 25px;
 
-  padding: 15px 32px;
+  padding:
+    15px
+    32px;
 
   color: white;
+
   background: #c93627;
 
-  border: 3px solid #3b2118;
+  border:
+    3px solid #3b2118;
+
   border-radius: 14px;
 
-  box-shadow: 6px 6px 0 #3b2118;
+  box-shadow:
+    6px 6px 0 #3b2118;
 
   font-size: 21px;
   font-weight: bold;
@@ -239,24 +347,34 @@ button {
 
 button:hover {
   background: #e34b39;
-  transform: translateY(-3px);
+
+  transform:
+    translateY(-3px);
 }
 
 
-/* COUPLE - LAPTOP */
+/* =========================
+   COUPLE - LAPTOP
+========================= */
 
 .couple-sitting {
   position: relative;
+
   z-index: 4;
 
   display: block;
 
-  width: min(560px, 72vw);
+  width:
+    min(560px, 72vw);
+
   height: auto;
 
   object-fit: contain;
 
-  margin: 30px auto 0;
+  margin:
+    30px
+    auto
+    0;
 
   filter:
     drop-shadow(
@@ -265,23 +383,33 @@ button:hover {
 }
 
 
-/* TABLET */
+/* =========================
+   TABLET
+========================= */
 
 @media (max-width: 1000px) {
 
   .sign {
     border-width: 4px;
+
     outline-width: 2px;
   }
+
 
   .sign-1 {
     top: 20px;
     left: 20px;
+
     width: 130px;
+
+    transform-origin:
+      50% 0%;
   }
+
 
   .sign-2 {
     top: 25px;
+
     left: 50%;
     right: auto;
 
@@ -292,11 +420,14 @@ button:hover {
       rotate(3deg);
   }
 
+
   .sign-3 {
     top: 20px;
     right: 20px;
+
     width: 130px;
   }
+
 
   .hero {
     padding-top: 150px;
@@ -304,7 +435,9 @@ button:hover {
 }
 
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 800px) {
 
@@ -316,10 +449,14 @@ button:hover {
 
   body {
     min-height: 100svh;
+
     overflow-x: hidden;
 
-    background-position: center center;
+    background-position:
+      center center;
+
     background-size: cover;
+
     background-attachment: fixed;
   }
 
@@ -328,37 +465,49 @@ button:hover {
 
   .wall-gallery {
     display: block !important;
+
     position: absolute;
+
     z-index: 5;
   }
+
 
   .sign {
     display: block !important;
 
     border-width: 3px;
+
     outline-width: 1px;
 
     box-shadow:
       3px 4px 0 rgba(38, 19, 10, 0.35);
   }
 
+
   .sign-1 {
     top: 14px;
     left: 8px;
+
     width: 76px;
 
-    transform-origin: top center;
+    transform:
+      rotate(-4deg);
+
+    transform-origin:
+      50% 0%;
 
     animation:
-      brainSignDropMobile
-      1.7s
-      cubic-bezier(0.22, 0.8, 0.3, 1)
-      0.3s
+      earthquakeSwingMobile
+      2.5s
+      cubic-bezier(0.22, 0.75, 0.32, 1)
+      0.5s
       both;
   }
 
+
   .sign-2 {
     top: 20px;
+
     left: 50%;
     right: auto;
 
@@ -369,68 +518,131 @@ button:hover {
       rotate(3deg);
   }
 
+
   .sign-3 {
     top: 15px;
     right: 8px;
+
     width: 80px;
   }
 
 
-  /* REALISTIC MOBILE DROP */
+  /* =========================
+     MOBILE EARTHQUAKE SWING
+  ========================= */
 
-  @keyframes brainSignDropMobile {
+  @keyframes earthquakeSwingMobile {
 
     0% {
-      opacity: 0;
-
       transform:
-        translateY(-110px)
-        rotate(-17deg);
-    }
-
-    42% {
-      opacity: 1;
-
-      transform:
-        translateY(7px)
-        rotate(9deg);
-    }
-
-    59% {
-      transform:
-        translateY(-3px)
-        rotate(-7deg);
-    }
-
-    73% {
-      transform:
-        translateY(2px)
-        rotate(4deg);
-    }
-
-    85% {
-      transform:
+        translateX(0)
         translateY(0)
+        rotate(-4deg);
+    }
+
+    5% {
+      transform:
+        translateX(1px)
+        translateY(0)
+        rotate(-2deg);
+    }
+
+    10% {
+      transform:
+        translateX(-2px)
+        translateY(1px)
         rotate(-6deg);
     }
 
-    93% {
+    15% {
       transform:
-        translateY(0)
+        translateX(2px)
+        translateY(1px)
+        rotate(-1deg);
+    }
+
+    20% {
+      transform:
+        translateX(-1px)
+        translateY(2px)
+        rotate(-7deg);
+    }
+
+    26% {
+      transform:
+        translateX(0)
+        translateY(3px)
         rotate(-3deg);
     }
 
-    100% {
-      opacity: 1;
-
+    32% {
       transform:
+        translateX(0)
+        translateY(5px)
+        rotate(14deg);
+    }
+
+    44% {
+      transform:
+        translateX(0)
+        translateY(5px)
+        rotate(-12deg);
+    }
+
+    55% {
+      transform:
+        translateX(0)
+        translateY(4px)
+        rotate(9deg);
+    }
+
+    65% {
+      transform:
+        translateX(0)
+        translateY(3px)
+        rotate(-8deg);
+    }
+
+    74% {
+      transform:
+        translateX(0)
+        translateY(2px)
+        rotate(6deg);
+    }
+
+    82% {
+      transform:
+        translateX(0)
+        translateY(1px)
+        rotate(-6deg);
+    }
+
+    89% {
+      transform:
+        translateX(0)
+        translateY(1px)
+        rotate(4deg);
+    }
+
+    94% {
+      transform:
+        translateX(0)
+        translateY(0)
+        rotate(-5deg);
+    }
+
+    100% {
+      transform:
+        translateX(0)
         translateY(0)
         rotate(-4deg);
     }
   }
 
 
-  /* MAIN MOBILE */
+  /* =========================
+     MOBILE MAIN
+  ========================= */
 
   .hero {
     position: relative;
@@ -451,16 +663,23 @@ button:hover {
   }
 
 
-  /* CARD MOBILE */
+  /* =========================
+     MOBILE CARD
+  ========================= */
 
   .content {
     position: relative;
+
     z-index: 10;
 
-    width: calc(100% - 10px);
+    width:
+      calc(100% - 10px);
+
     max-width: 680px;
 
-    margin: 0 auto;
+    margin:
+      0
+      auto;
 
     padding:
       24px
@@ -468,27 +687,37 @@ button:hover {
       26px;
 
     border-width: 3px;
+
     border-radius: 20px;
 
     box-shadow:
       7px 7px 0 rgba(59, 33, 24, 0.9);
   }
 
+
   .welcome {
     font-size: 18px;
   }
 
+
   h1 {
-    margin: 8px 0 10px;
+    margin:
+      8px
+      0
+      10px;
 
     font-size: 34px;
+
     line-height: 1.15;
   }
 
+
   .description {
     font-size: 16px;
+
     line-height: 1.5;
   }
+
 
   button {
     width: 100%;
@@ -506,24 +735,29 @@ button:hover {
   }
 
 
-  /* COUPLE MOBILE */
+  /* =========================
+     MOBILE COUPLE
+  ========================= */
 
   .couple-sitting {
     position: absolute;
 
     z-index: 4;
 
-    width: min(94vw, 600px);
+    width:
+      min(94vw, 600px);
+
     max-width: none;
+
     height: auto;
 
     left: 50%;
-
     bottom: 18px;
 
     margin: 0;
 
-    transform: translateX(-50%);
+    transform:
+      translateX(-50%);
 
     filter:
       drop-shadow(
@@ -533,7 +767,9 @@ button:hover {
 }
 
 
-/* SMALL MOBILE */
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media (max-width: 480px) {
 
@@ -544,11 +780,13 @@ button:hover {
     width: 68px;
   }
 
+
   .sign-2 {
     top: 16px;
 
     width: 66px;
   }
+
 
   .sign-3 {
     top: 11px;
@@ -557,8 +795,10 @@ button:hover {
     width: 70px;
   }
 
+
   .hero {
     height: 100svh;
+
     min-height: 100svh;
 
     padding:
@@ -566,6 +806,7 @@ button:hover {
       8px
       0;
   }
+
 
   .content {
     width: 100%;
@@ -576,24 +817,30 @@ button:hover {
       23px;
   }
 
+
   .welcome {
     font-size: 17px;
   }
+
 
   h1 {
     font-size: 30px;
   }
 
+
   .description {
     font-size: 15px;
   }
+
 
   button {
     font-size: 17px;
   }
 
+
   .couple-sitting {
     width: 96vw;
+
     max-width: 430px;
 
     bottom: 15px;
@@ -601,12 +848,16 @@ button:hover {
 }
 
 
-/* ACCESSIBILITY */
+/* =========================
+   ACCESSIBILITY
+========================= */
 
 @media (prefers-reduced-motion: reduce) {
 
   .sign-1 {
     animation: none;
-    transform: rotate(-4deg);
+
+    transform:
+      rotate(-4deg);
   }
 }
