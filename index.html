@@ -37,7 +37,7 @@
   </script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="style.css?v=cat-eyes-3">
+  <link rel="stylesheet" href="style.css?v=cat-bubble-4">
 </head>
 
 
@@ -120,7 +120,7 @@
     <!-- القطة النايمة -->
     <div class="sleeping-cat" role="button" tabindex="0" aria-label="صحّي القطة">
 
-      <span class="cat-speech" role="status" aria-live="polite"></span>
+      <span class="cat-speech" role="status" aria-live="polite" hidden></span>
 
       <div class="cat-art">
 
@@ -152,19 +152,29 @@
     const catSpeech = cat.querySelector('.cat-speech');
     let catSleepTimer;
 
-    function wakeCat() {
+    function sleepCat() {
       clearTimeout(catSleepTimer);
-      cat.classList.add('is-angry');
-      catSpeech.textContent = 'سبني انام دا انت رخم';
-      catSleepTimer = setTimeout(() => {
-        cat.classList.remove('is-angry');
-        catSpeech.textContent = '';
-      }, 4000);
+      cat.classList.remove('is-angry');
+      catSpeech.hidden = true;
+      catSpeech.textContent = '';
     }
+
+    function wakeCat() {
+      if (cat.classList.contains('is-angry')) return;
+      cat.classList.add('is-angry');
+      catSpeech.innerHTML = '<strong>سبني انام</strong><span>دا انت رخم</span>';
+      catSpeech.hidden = false;
+      catSleepTimer = setTimeout(sleepCat, 3000);
+    }
+
+    catSpeech.addEventListener('animationend', sleepCat);
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) sleepCat();
+    });
 
     cat.addEventListener('click', wakeCat);
     cat.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
+      if (!event.repeat && (event.key === 'Enter' || event.key === ' ')) {
         event.preventDefault();
         wakeCat();
       }

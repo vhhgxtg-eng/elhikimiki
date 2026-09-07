@@ -877,30 +877,30 @@ button:hover {
   position: absolute;
   bottom: calc(100% + 10px);
   left: 0;
-  width: 205px;
+  width: 176px;
   max-width: calc(100vw - 24px);
-  padding: 10px 12px;
-  border: 2px solid #3b2118;
-  border-radius: 16px;
-  background: #fff2c8;
+  padding: 12px 18px;
+  border: 1px solid rgba(91, 57, 30, .22);
+  border-radius: 18px;
+  background: #fff8e9;
   color: #3b2118;
-  box-shadow: 3px 3px 0 rgba(59,33,24,.65);
-  font: bold 16px/1.6 Tahoma, Arial, sans-serif;
+  box-shadow: 0 6px 20px rgba(47, 27, 19, .16);
+  font: 14px/1.6 Tahoma, Arial, sans-serif;
   text-align: center;
   direction: rtl;
-  visibility: hidden;
+  opacity: 0;
   pointer-events: none;
 }
 .cat-speech::after {
   content: '';
   position: absolute;
   left: 26px;
-  bottom: -9px;
-  width: 14px;
-  height: 14px;
-  background: #fff2c8;
-  border-right: 2px solid #3b2118;
-  border-bottom: 2px solid #3b2118;
+  bottom: -6px;
+  width: 10px;
+  height: 10px;
+  background: #fff8e9;
+  border-right: 1px solid rgba(91, 57, 30, .22);
+  border-bottom: 1px solid rgba(91, 57, 30, .22);
   transform: rotate(45deg);
 }
 .cat-angry-face {
@@ -915,6 +915,14 @@ button:hover {
     radial-gradient(ellipse 11% 13% at 34% 44%, #000 65%, transparent 100%);
 }
 .is-angry .cat-angry-face { display: block; }
-.is-angry .cat-speech { visibility: visible; }
+.cat-speech[hidden] { display: none; }
+.cat-speech strong, .cat-speech span { display: block; }
+.cat-speech strong { font-size: 17px; margin-bottom: 2px; }
+.cat-speech span { color: #795943; }
+.cat-speech:not([hidden]) { animation: catSpeechNotice 3s ease both; }
+@keyframes catSpeechNotice {
+  0%, 100% { opacity: 0; }
+  8%, 88% { opacity: 1; }
+}
 .is-angry .snore { visibility: hidden; }
 .is-angry .cat-art { animation-play-state: paused; }
