@@ -1,16 +1,8 @@
 {
-  "name": "heiky-meiky",
+  "name": "elhikimiki-chat",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "private": true,
   "type": "commonjs",
-  "dependencies": {
-    "express": "^5.2.1"
-  }
+  "engines": { "node": ">=22" },
+  "scripts": { "start": "node server.js", "test": "node test-chat.cjs" }
 }

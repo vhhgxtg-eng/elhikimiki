@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>قعدة عشوائية | الحيكي ميكي</title>
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="chat.css">
+  <script src="chat.js" defer></script>
+</head>
+<body>
+  <main class="chat-shell">
+    <header class="chat-header">
+      <a href="index.html" class="brand" aria-label="الرجوع للرئيسية">الحيكي ميكي <span>☕</span></a>
+      <span class="age-badge">١٨+ فقط</span>
+    </header>
+    <section id="gate" class="gate" aria-labelledby="gate-title">
+      <div class="coffee-mark" aria-hidden="true">☕</div>
+      <p class="eyebrow">كرسي فاضي… وحكاية جديدة</p>
+      <h1 id="gate-title">قعدة مع حد جديد</h1>
+      <p class="intro">شات كتابة بينك وبين شخص عشوائي.<br>من غير اسم حقيقي، ومن غير كاميرا.</p>
+      <form id="join-form">
+        <label class="check"><input id="adult" type="checkbox" required> <span>أنا عمري ١٨ سنة أو أكتر.</span></label>
+        <label class="check"><input id="rules" type="checkbox" required> <span>هحترم الطرف التاني، ومش هشارك محتوى جنسي أو تهديدات أو بيانات شخصية.</span></label>
+        <button class="primary" id="join" type="submit">يلا نقعد <span aria-hidden="true">←</span></button>
+      </form>
+      <p class="privacy">الكلام مش بيظهر لزوار تانيين. المحادثة بتنتهي لما حد يمشي، ومش بتتحفظ في سجل ترجع له.</p>
+      <p id="gate-error" class="error" role="alert"></p>
+    </section>
+    <section id="conversation" class="conversation" hidden aria-label="المحادثة">
+      <div class="room-header">
+        <div><span class="status-dot" id="status-dot"></span><strong id="status" role="status">بندور على حد متاح…</strong><p id="hint">أول ما حد يدخل، القعدة تبدأ.</p></div>
+        <button class="quiet" id="end" type="button">إنهاء</button>
+      </div>
+      <div id="messages" class="messages" role="log" aria-live="polite" aria-label="رسائل المحادثة"></div>
+      <p id="chat-error" class="chat-error" role="alert"></p>
+      <form id="message-form" class="composer">
+        <label class="sr-only" for="message">رسالتك</label>
+        <input id="message" maxlength="1000" autocomplete="off" placeholder="قول أهلًا…" disabled>
+        <button id="send" class="primary" type="submit" disabled>إرسال</button>
+      </form>
+      <footer class="room-footer">
+        <button id="next" class="secondary" type="button">شخص تاني ←</button>
+        <div><button id="block" class="text-button" disabled>حظر</button><button id="report" class="text-button" hidden disabled>إبلاغ</button></div>
+      </footer>
+      <p class="fine-print">الحظر بيمنع مقابلتكم تاني خلال الجلسة الحالية. لو القعدة مش مريحة، تقدر تنهيها في أي وقت.</p>
+    </section>
+    <dialog id="report-dialog" aria-labelledby="report-title">
+      <form id="report-form">
+        <h2 id="report-title">إبلاغ عن المحادثة</h2>
+        <p>هيتبعت سبب البلاغ وآخر ٣٠ رسالة للمراجعة، والمحادثة هتنتهي.</p>
+        <label for="reason">سبب البلاغ</label>
+        <select id="reason"><option value="harassment">إساءة أو تهديد</option><option value="underage">شخص أقل من ١٨ سنة</option><option value="sexual">محتوى جنسي</option><option value="other">سبب تاني</option></select>
+        <div class="dialog-actions"><button class="primary" type="submit">إرسال البلاغ</button><button class="quiet" id="cancel-report" type="button">رجوع</button></div>
+      </form>
+    </dialog>
+  </main>
+</body>
+</html>

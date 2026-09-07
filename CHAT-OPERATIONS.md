@@ -1,0 +1,11 @@
+# Elhikimiki text chat
+
+Run `npm start` on Node 22 or newer, then open `/chat.html`. `npm test` runs the server integration tests. No runtime packages are required. `PORT` defaults to 3001. One server process owns the queue and conversations; do not add replicas without moving state to a shared store.
+
+Render: create a Node Web Service from this repository on the Free plan. Build command: `node --check server.js`. Start command: `node server.js`. Health check: `/healthz`. The server uses Render's `RENDER_EXTERNAL_URL` for same-origin checks; elsewhere set `APP_ORIGIN` to the exact HTTPS origin. Ordinary chat messages remain in memory, capped at 200 per active room. Leaving, disconnect expiry (90 seconds), restart or redeploy clears the room. There is no conversation history or account identity. Free Render services sleep when idle, so the initial visit may take about a minute.
+
+The 18+ gate is a self-declaration, not verified age. Messages are private to the paired sessions, not end-to-end encrypted. Blocks prevent rematching for the current sessions only; refreshing gives a new anonymous identity. "Next" also avoids the immediately previous person.
+
+Reporting is disabled and the report button hidden until a durable collector is configured. To enable the included collector, set `REPORTS_FILE` to a file on persistent storage. Each report records its reason and the last 30 messages after consent in the report dialog. The server acknowledges only a successful write and never serves that file over HTTP. Free Render disk is ephemeral: do not enable reporting against its temporary disk or claim that reports are being reviewed. Before broad public launch, appoint a reviewer, choose a retention/deletion period, connect durable report storage, and strengthen anonymous abuse controls. The initial service is intended for a small supervised trial.
+
+Security checks: unpredictable per-session bearer tokens, same-origin API checks, room-bound writes, escaped message rendering, message length/rate limits, session cap and expiry, protected static allowlist, no IP or message content logging for normal chat. An adversary can still create new sessions; these basic limits are not full public-service abuse protection.
