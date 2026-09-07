@@ -808,7 +808,7 @@ button:hover {
 
 /* Cat artwork and mouth share one responsive coordinate system. */
 .sleeping-cat {
-  position: fixed;
+  position: absolute;
   left: 55px;
   bottom: 28px;
   width: 180px;
