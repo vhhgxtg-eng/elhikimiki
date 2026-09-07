@@ -6,7 +6,7 @@ const PORT = 3001;
 
 // Serve the same page and artwork as GitHub Pages, without exposing source files.
 app.use("/images", express.static(path.join(__dirname, "images")));
-for (const file of ["index.html", "style.css", "favicon.png"]) {
+for (const file of ["index.html", "style.css", "favicon.png", "angry-cat-eyes.png"]) {
   app.get(file === "index.html" ? ["/", "/index.html"] : "/" + file,
     (req, res) => res.sendFile(path.join(__dirname, file)));
 }

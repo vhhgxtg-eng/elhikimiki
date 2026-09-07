@@ -903,30 +903,18 @@ button:hover {
   border-bottom: 2px solid #3b2118;
   transform: rotate(45deg);
 }
-.cat-eye {
+.cat-angry-face {
   display: none;
   position: absolute;
-  width: 10%;
-  height: 7%;
-  background: #d9df75;
-  border: 2px solid #42220e;
-  border-top-width: 3px;
-  border-radius: 10% 10% 65% 65%;
-  transform: rotate(-20deg);
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  /* Blend only the painted eyes; retain the original body and transparency. */
+  mask-image: radial-gradient(ellipse 12% 9% at 19% 55%, #000 65%, transparent 100%),
+    radial-gradient(ellipse 11% 13% at 34% 44%, #000 65%, transparent 100%);
 }
-.cat-eye::after {
-  content: '';
-  position: absolute;
-  left: 46%;
-  top: 0;
-  height: 90%;
-  width: 15%;
-  background: #231408;
-  border-radius: 50%;
-}
-.cat-eye-left { left: 12%; top: 54%; transform: rotate(12deg); }
-.cat-eye-right { left: 30%; top: 44%; transform: rotate(-40deg); }
-.is-angry .cat-eye { display: block; }
+.is-angry .cat-angry-face { display: block; }
 .is-angry .cat-speech { visibility: visible; }
 .is-angry .snore { visibility: hidden; }
 .is-angry .cat-art { animation-play-state: paused; }
