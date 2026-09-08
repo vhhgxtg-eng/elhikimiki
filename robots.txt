@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vhhgxtg-eng.github.io/elhikimiki/sitemap.xml
