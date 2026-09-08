@@ -6,17 +6,17 @@
   <meta name="robots" content="noindex">
   <title>قعدة عشوائية | الحيكي ميكي</title>
   <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="chat.css">
+  <link rel="stylesheet" href="chat.css?v=cafe-experience-1">
   <script src="chat.js" defer></script>
 </head>
 <body>
   <main class="chat-shell">
     <header class="chat-header">
       <a href="index.html" class="brand" aria-label="الرجوع للرئيسية">الحيكي ميكي <span>☕</span></a>
-      <span class="age-badge">١٨+ فقط</span>
+      <div class="header-actions"><button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="تشغيل المؤثرات الصوتية"><span aria-hidden="true">🔇</span> الصوت</button><span class="age-badge">١٨+ فقط</span></div>
     </header>
     <section id="gate" class="gate" aria-labelledby="gate-title">
-      <div class="coffee-mark" aria-hidden="true">☕</div>
+      <div class="cafe-stage" aria-hidden="true"><img class="gate-characters" src="images/couple-sitting.png.png" alt=""><div class="coffee-mark"><span class="steam steam-1"></span><span class="steam steam-2"></span><span class="steam steam-3"></span>☕</div></div>
       <p class="eyebrow">كرسي فاضي… وحكاية جديدة</p>
       <h1 id="gate-title">قعدة مع حد جديد</h1>
       <p class="intro">شات كتابة بينك وبين شخص عشوائي.<br>من غير اسم حقيقي، ومن غير كاميرا.</p>
@@ -33,7 +33,7 @@
         <div><span class="status-dot" id="status-dot"></span><strong id="status" role="status">بندور على حد متاح…</strong><p id="hint">أول ما حد يدخل، القعدة تبدأ.</p></div>
         <button class="quiet" id="end" type="button">إنهاء</button>
       </div>
-      <div id="messages" class="messages" role="log" aria-live="polite" aria-label="رسائل المحادثة"></div>
+      <div id="waiting-panel" class="waiting-panel" role="status" aria-live="polite"><div class="waiting-cup" aria-hidden="true"><span></span><span></span><span></span>☕</div><strong>بنجهّزلك كرسي في القهوة…</strong><p>بندور على شخص متاح</p><small id="waiting-time">ثواني ونبدأ</small><div class="waiting-dots" aria-hidden="true"><i></i><i></i><i></i></div></div><div id="messages" class="messages" role="log" aria-live="polite" aria-label="رسائل المحادثة"></div>
       <p id="chat-error" class="chat-error" role="alert"></p>
       <form id="message-form" class="composer">
         <label class="sr-only" for="message">رسالتك</label>
