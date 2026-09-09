@@ -926,3 +926,103 @@ button:hover {
 }
 .is-angry .snore { visibility: hidden; }
 .is-angry .cat-art { animation-play-state: paused; }
+
+/* Comic title, entrance contact board, and three small passing flies. */
+.main-title{gap:.12em;overflow:visible;padding:4px 8px 10px}
+.main-title .landing-word{display:inline-block;font-family:Tahoma,"Arial Rounded MT Bold",Arial,sans-serif;font-weight:1000;letter-spacing:-3px;color:#c32622;background:linear-gradient(105deg,#9e1718 0 36%,#ff4f69 43%,#fff0a8 48%,#e12c35 53%,#9e1718 68% 100%);background-size:280% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:1.2px #641315;text-shadow:1px 2px 0 #ffcd72,2px 4px 0 #741417,4px 7px 0 #3b0c10,6px 10px 12px #2f11085c;animation:landingComicShine 4s ease-in-out infinite}
+.main-title .landing-word-1{transform:rotate(-2deg) translateY(3px)}
+.main-title .landing-word-2{transform:rotate(3deg) translateY(-2px);animation-delay:-.2s}
+@keyframes landingComicShine{0%,28%{background-position:130% 0}66%,100%{background-position:-130% 0}}
+.contact-board{position:absolute;right:50%;bottom:27px;z-index:8;width:min(520px,72vw);padding:16px 28px 14px;color:#ffe09b;background:linear-gradient(174deg,#74392d,#9b5039 52%,#653027);border:5px solid #47231b;border-radius:6px;box-shadow:0 7px 0 #351914,0 12px 20px #29110552,inset 0 0 0 2px #c47a55;font-family:Tahoma,Arial,sans-serif;font-size:19px;font-weight:900;line-height:1.45;text-align:center;text-shadow:0 2px 0 #492219;transform:translateX(50%) rotate(-2deg)}
+.contact-board::before,.contact-board::after{content:"";position:absolute;top:10px;width:10px;height:10px;border-radius:50%;background:#d99d62;border:2px solid #452219;box-shadow:inset 1px 1px 1px #ffe5a5}.contact-board::before{right:10px}.contact-board::after{left:10px}.contact-board span,.contact-board b{display:block}.contact-board b{font-size:29px;letter-spacing:2px;color:#ffe6ad;text-shadow:0 3px 0 #442018}
+.home-flies{position:fixed;inset:0;z-index:20;overflow:hidden;pointer-events:none}.home-fly{position:absolute;left:-28px;animation:homeFlyAcross 22s linear infinite}.home-fly img{display:block;width:12px;height:12px;object-fit:contain;animation:homeFlyBuzz .12s steps(2,end) infinite}.home-fly-1{top:21%}.home-fly-2{top:54%;animation-duration:27s;animation-delay:-10s}.home-fly-3{top:77%;animation-duration:31s;animation-delay:-20s}.home-fly-2 img{width:10px;height:10px}.home-fly-3 img{width:8px;height:8px}
+@keyframes homeFlyAcross{0%,15%{opacity:0;transform:translate(-5vw,4px) rotate(6deg)}17%{opacity:.82}29%{transform:translate(18vw,25px) rotate(23deg)}43%{transform:translate(39vw,-17px) rotate(-19deg)}58%{transform:translate(58vw,30px) rotate(18deg)}72%{transform:translate(76vw,-14px) rotate(-21deg)}87%{opacity:.82;transform:translate(101vw,9px) rotate(13deg)}88%,100%{opacity:0;transform:translate(110vw,0) rotate(5deg)}}
+@keyframes homeFlyBuzz{0%{transform:translate(-1px,-1px) rotate(-8deg)}50%{transform:translate(1px,1px) rotate(8deg)}100%{transform:translate(0,-1px) rotate(-5deg)}}
+@media(max-width:800px){.main-title .landing-word{letter-spacing:-2px;-webkit-text-stroke:.8px #641315}.contact-board{position:absolute;bottom:152px;width:min(88vw,440px);padding:12px 20px;font-size:15px}.contact-board b{font-size:22px}.home-fly img{width:7px;height:7px}.home-fly-2 img{width:6px;height:6px}.home-fly-3 img{width:5px;height:5px}}
+@media(max-width:480px){.contact-board{bottom:130px;font-size:14px}.contact-board b{font-size:20px}}
+@media(prefers-reduced-motion:reduce){.main-title .landing-word,.home-fly,.home-fly img{animation:none}}
+
+/* Old cafe television carrying the supplied comedy portrait. */
+.wall-tv{position:fixed;top:285px;left:26px;z-index:2;width:150px;padding:10px 27px 10px 10px;background:linear-gradient(145deg,#70401f,#3b1e10 58%,#8c552a);border:3px solid #251109;border-radius:16px;box-shadow:7px 10px 0 #2b130a88;transform:rotate(2deg);pointer-events:none}
+.tv-screen{overflow:hidden;aspect-ratio:4/5;border:4px solid #17110e;border-radius:45% / 12%;background:#070707;box-shadow:inset 0 0 12px #000}
+.tv-screen img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 35%;filter:sepia(.12) contrast(1.08) saturate(.9)}
+.tv-controls{position:absolute;right:6px;top:18px;display:grid;gap:14px}.tv-controls i{display:block;width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#d9aa64,#5a3017 62%,#1e0f08);border:1px solid #1e0f08;box-shadow:0 1px 2px #0008}
+.wall-tv::after{content:"";position:absolute;right:9px;bottom:12px;width:10px;height:28px;background:repeating-linear-gradient(#170c07 0 2px,transparent 2px 5px)}
+@media(max-width:600px){.wall-tv{top:365px;left:9px;width:88px;padding:6px 16px 6px 6px;border-width:2px;border-radius:10px;box-shadow:4px 6px 0 #2b130a77}.tv-screen{border-width:2px}.tv-controls{right:3px;top:11px;gap:8px}.tv-controls i{width:8px;height:8px}.wall-tv::after{right:5px;bottom:7px;width:6px;height:16px}}
+
+/* Cafe magic: subtle festoon lights, a balanced wall poster, and a real TV frame. */
+.cafe-lights{position:fixed;top:7px;left:4vw;right:4vw;z-index:6;height:42px;display:flex;justify-content:space-around;pointer-events:none;border-top:2px solid #2f1c13;transform:rotate(-.5deg)}
+.cafe-lights i{position:relative;width:10px;height:15px;margin-top:8px;border-radius:48% 48% 55% 55%;background:#ffd45e;box-shadow:0 0 5px #ffdf72,0 0 13px #ffb52f,0 0 22px #ff98174d;animation:cafeBulbGlow 2.4s ease-in-out infinite}
+.cafe-lights i::before{content:"";position:absolute;left:3px;top:-9px;width:4px;height:9px;background:#2f1c13;border-radius:2px}.cafe-lights i:nth-child(3n+2){background:#e94c3d;box-shadow:0 0 6px #ff7568,0 0 15px #d93627}.cafe-lights i:nth-child(3n){background:#55ba8a;box-shadow:0 0 6px #79dba9,0 0 15px #32996a}.cafe-lights i:nth-child(even){animation-delay:-1.1s}
+@keyframes cafeBulbGlow{0%,100%{opacity:.72;filter:brightness(.82)}50%{opacity:1;filter:brightness(1.25)}}
+.tv-screen{aspect-ratio:4/3;border-radius:18% / 24%}.tv-screen img{object-position:center;filter:sepia(.18) contrast(1.08) saturate(.86)}
+.wall-saying{position:fixed;top:300px;right:28px;z-index:2;width:132px;padding:6px;background:#3020a8;border:6px solid #442416;outline:2px solid #1f100b;border-radius:3px;box-shadow:7px 9px 0 #2b130a77;transform:rotate(-2.5deg);pointer-events:none}.wall-saying img{display:block;width:100%;height:auto;filter:saturate(.92) contrast(1.04)}
+@media(max-width:600px){.cafe-lights{top:4px;left:2vw;right:2vw;height:29px}.cafe-lights i{width:7px;height:10px;margin-top:7px}.cafe-lights i::before{left:2px;top:-7px;width:3px;height:7px}.wall-saying{top:365px;right:8px;width:82px;padding:3px;border-width:3px;outline-width:1px;box-shadow:4px 5px 0 #2b130a66}}
+@media(prefers-reduced-motion:reduce){.cafe-lights i{animation:none}}
+
+/* Wall-mounted realism pass: all decor belongs to the page, not the viewport. */
+.wall-gallery,.wall-cracks,.wall-tv,.wall-saying,.cafe-lights,.chalk-note.contact-board{position:absolute}
+.wall-gallery,.wall-cracks{inset:0;min-height:100vh}
+.sign{box-shadow:0 2px 0 #1b0d07,7px 9px 0 rgba(38,19,10,.45),0 14px 18px #28120838;filter:saturate(.94)}
+.wall-gallery::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(64deg,transparent 0 49.7%,#3a2418 49.8% 50.2%,transparent 50.3%) 288px 21px/112px 47px no-repeat,linear-gradient(-64deg,transparent 0 49.7%,#3a2418 49.8% 50.2%,transparent 50.3%) 288px 21px/112px 47px no-repeat}
+.sign-1{animation:signPendulum 5.8s cubic-bezier(.45,0,.55,1) .55s infinite}
+.wall-tv::before,.wall-saying::before{content:"";position:absolute;left:10%;right:10%;top:-38px;height:40px;background:linear-gradient(62deg,transparent 0 49%,#342117 49.5% 51%,transparent 51.5%),linear-gradient(-62deg,transparent 0 49%,#342117 49.5% 51%,transparent 51.5%);background-size:50% 100%;background-position:left top,right top;background-repeat:no-repeat;filter:drop-shadow(0 1px #d19b5c55)}
+.wall-tv{top:315px;left:28px;box-shadow:0 3px 0 #2a160d,7px 10px 0 #2b130a88,0 16px 22px #2a12084a}
+.wall-saying{top:325px;right:30px;box-shadow:0 3px 0 #24120c,7px 9px 0 #2b130a77,0 14px 20px #2a120845}
+.cafe-lights{top:4px;border:0;transform:none}
+.cafe-lights::before{content:"";position:absolute;left:0;right:0;top:-44px;height:74px;border-bottom:2px solid #2f1c13;border-radius:0 0 50% 50%;filter:drop-shadow(0 1px #d9a15d55)}
+.cafe-lights i{margin-top:17px}.cafe-lights i:nth-child(2),.cafe-lights i:nth-child(8){margin-top:21px}.cafe-lights i:nth-child(3),.cafe-lights i:nth-child(7){margin-top:25px}.cafe-lights i:nth-child(4),.cafe-lights i:nth-child(6){margin-top:29px}.cafe-lights i:nth-child(5){margin-top:32px}
+.chalk-note.contact-board{top:455px;bottom:auto;right:auto;left:28px;width:300px;padding:16px 24px 14px;background:linear-gradient(168deg,#603229,#8e4837 51%,#552a23);border-color:#3e2019;box-shadow:0 3px 0 #2c1511,6px 8px 0 #351914,0 14px 20px #29110542,inset 0 0 0 2px #bc7653;font-family:Tahoma,Arial,sans-serif;transform:rotate(-1.8deg)}
+.chalk-note.contact-board span{font-size:16px}.chalk-note.contact-board b{font-family:Consolas,"Courier New",monospace;font-size:25px;font-weight:800;letter-spacing:1px;color:#ffe0a0}
+@media(max-width:600px){.wall-gallery,.wall-cracks{min-height:100svh}.wall-gallery::before{display:none}.sign-1{animation-duration:6.4s}.wall-tv{top:374px;left:10px}.wall-saying{top:374px;right:10px}.wall-tv::before,.wall-saying::before{top:-24px;height:26px}.cafe-lights{top:2px}.cafe-lights::before{top:-30px;height:48px}.cafe-lights i{margin-top:10px}.cafe-lights i:nth-child(2),.cafe-lights i:nth-child(8){margin-top:12px}.cafe-lights i:nth-child(3),.cafe-lights i:nth-child(7){margin-top:14px}.cafe-lights i:nth-child(4),.cafe-lights i:nth-child(6){margin-top:16px}.cafe-lights i:nth-child(5){margin-top:18px}.chalk-note.contact-board{top:850px;bottom:auto;left:50%;right:auto;width:min(88vw,420px);transform:translateX(-50%) rotate(-1.5deg);padding:14px 20px}.chalk-note.contact-board span{font-size:14px}.chalk-note.contact-board b{font-size:20px}}
+
+/* Final responsive polish for the cafe wall. */
+.wall-tv{width:190px;padding:0;background:transparent;border:0;outline:0;border-radius:0;box-shadow:none;transform:rotate(-1deg)}
+.wall-tv::before,.wall-tv::after{display:none}
+.vintage-tv{display:block;width:100%;height:auto;filter:drop-shadow(0 8px 5px #2a120852)}
+@media(max-width:600px){
+  .wall-cracks{opacity:.2}
+  .wall-cracks i:nth-child(n+3){display:none}
+  .wall-cracks i:nth-child(1){top:47%;left:42%;width:52px}
+  .wall-cracks i:nth-child(2){top:62%;right:5%;width:60px}
+  .wall-tv{top:353px;left:7px;width:128px;transform:rotate(-1deg)}
+  .wall-saying{display:none}
+  .chalk-note.contact-board{top:447px;left:50%;right:auto;width:350px;min-height:58px;padding:8px 15px 9px;display:flex;align-items:center;justify-content:center;gap:9px;transform:translateX(-50%) rotate(-1deg);border-width:3px;box-shadow:0 3px 0 #2c1511,4px 5px 0 #351914,inset 0 0 0 1px #bc7653}
+  .chalk-note.contact-board span,.chalk-note.contact-board b{display:inline;margin:0}
+  .chalk-note.contact-board span{font-size:12px;white-space:nowrap}
+  .chalk-note.contact-board b{font-size:16px;letter-spacing:0}
+  .chalk-note.contact-board::before,.chalk-note.contact-board::after{width:6px;height:6px;top:6px}
+  .chalk-note.contact-board::before{right:6px}.chalk-note.contact-board::after{left:6px}
+}
+@media(max-width:370px){
+  .wall-tv{width:112px}
+  .chalk-note.contact-board{width:calc(100vw - 20px);gap:6px}
+  .chalk-note.contact-board span{font-size:11px}
+  .chalk-note.contact-board b{font-size:14px}
+}
+
+/* Keep the mobile contact plaque clear of the character caption. */
+@media(max-width:600px){
+  .chalk-note.contact-board{top:360px;right:7px;width:190px;min-height:67px;padding:8px 11px 7px}
+  .chalk-note.contact-board span{font-size:10.5px;line-height:1.28}
+  .chalk-note.contact-board b{margin-top:3px;font-size:15px}
+}
+@media(max-width:370px){
+  .chalk-note.contact-board{width:182px;right:5px}
+  .chalk-note.contact-board span{font-size:10px}
+  .chalk-note.contact-board b{font-size:14px}
+}
+
+/* Mobile-only placement correction requested from the real device screenshot. */
+@media(max-width:600px){
+  .sign-1{top:43px!important}
+  .chalk-note.contact-board{top:354px;left:auto;right:8px;width:226px;min-height:82px;padding:10px 14px 9px;display:block;transform:rotate(-1deg);text-align:center}
+  .chalk-note.contact-board span,.chalk-note.contact-board b{display:block;margin:0}
+  .chalk-note.contact-board span{font-size:12px;line-height:1.35;white-space:normal}
+  .chalk-note.contact-board b{margin-top:4px;font-size:18px;letter-spacing:.5px}
+}
+@media(max-width:370px){
+  .sign-1{top:40px!important}
+  .wall-tv{left:5px;width:108px}
+  .chalk-note.contact-board{right:6px;width:214px;min-height:78px;padding-inline:11px}
+}
