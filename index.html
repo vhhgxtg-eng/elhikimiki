@@ -10,43 +10,18 @@
   <link rel="icon" type="image/png" href="favicon.png">
 
   <!-- SEO -->
-  <title>الحيكي ميكي | شات مصري عشوائي بالكتابة للبالغين</title>
+  <title>الحيكي ميكي | شات مصري عشوائي وتعارف بدون تسجيل</title>
+  <link rel="canonical" href="https://vhhgxtg-eng.github.io/elhikimiki/">
 
   <meta
     name="description"
-    content="الحيكي ميكي: شات مصري عشوائي بالكتابة للبالغين 18 سنة فأكثر. اتكلم مع شخص جديد من غير كاميرا، واختار شخص تاني أو انهي المحادثة في أي وقت."
+    content="الحيكي ميكي شات مصري عشوائي وتعارف بدون تسجيل للكبار فقط. ادخل القهوة واتكلم مع شخص جديد على رواقة."
   >
 
   <meta
     name="keywords"
     content="الحيكي الميكي, الحيكي ميكي, الحيكي الميكي للهلس والهشك بشك, الهلس, الهشك بشك, موقع تعارف مصري"
   >
-
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="author" content="الحيكي الميكي">
-  <meta property="og:locale" content="ar_EG">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="الحيكي ميكي | شات مصري عشوائي بالكتابة للبالغين">
-  <meta property="og:description" content="شات مصري عشوائي بالكتابة للبالغين 18 سنة فأكثر، من غير كاميرا.">
-  <meta property="og:url" content="https://vhhgxtg-eng.github.io/elhikimiki/">
-  <meta property="og:site_name" content="الحيكي الميكي">
-  <meta property="og:image" content="https://vhhgxtg-eng.github.io/elhikimiki/images/ahwa-background.png">
-  <meta property="og:image:alt" content="الحيكي الميكي - شات وتعارف مصري">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="الحيكي ميكي | شات مصري عشوائي">
-  <meta name="twitter:description" content="شات مصري عشوائي بالكتابة للبالغين، من غير كاميرا.">
-  <meta name="twitter:image" content="https://vhhgxtg-eng.github.io/elhikimiki/images/ahwa-background.png">
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "الحيكي الميكي",
-    "alternateName": ["الحيكي ميكي", "الحيكي الميكي للهلس والهشك بشك"],
-    "url": "https://vhhgxtg-eng.github.io/elhikimiki/",
-    "inLanguage": "ar-EG",
-    "description": "شات مصري عشوائي بالكتابة للبالغين 18 سنة فأكثر"
-  }
-  </script>
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF52NSZL86"></script>
@@ -64,7 +39,6 @@
 
   <!-- CSS -->
   <link rel="stylesheet" href="style.css?v=realistic-lights-1">
-  <link rel="canonical" href="https://vhhgxtg-eng.github.io/elhikimiki/">
 </head>
 
 
@@ -73,6 +47,13 @@
   <div class="home-flies" aria-hidden="true"><span class="home-fly home-fly-1"><img src="images/real-fly.png" alt=""></span><span class="home-fly home-fly-2"><img src="images/real-fly.png" alt=""></span><span class="home-fly home-fly-3"><img src="images/real-fly.png" alt=""></span></div>
 
   <div class="cafe-lights" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <div class="wall-cracks" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+  <aside class="chalk-note contact-board" aria-label="التواصل مع الحيكي">
+    <span>لو عندك مشكلة اتواصل مع الحيكي شخصيًا!</span>
+    <b dir="ltr">01068717502</b>
+  </aside>
 
   <!-- يافطات القهوة -->
   <div class="wall-gallery">
@@ -135,12 +116,17 @@
 
       <!-- الوصف -->
       <p class="description">
-        شات مصري عشوائي ع الرايق ☕
+        شات مصري ع الرايق ☕
       </p>
+
+      <div class="cafe-live" aria-live="polite">
+        <span id="daily-saying">جملة القهوة النهارده: خليك رايق… البن بيتحمّص</span>
+        <b id="cafe-count">بنشوف مين في القهوة…</b>
+      </div>
 
 
       <!-- الزر -->
-      <button type="button" onclick="window.location.href='https://elhikimiki-chat.amiraelghanam101.chatgpt.site/chat.html'">
+      <button type="button" onclick="window.location.href='chat.html'">
         ابدأ التعارف
       </button>
 
@@ -186,6 +172,24 @@
 
 
   <script>
+    const dailySayings = [
+      'خليك رايق… البن بيتحمّص',
+      'الكلام ببلاش، بس اختار كلامك',
+      'فنجان مظبوط وقعدة من غير تكليف',
+      'اللي جاي يقعد… يسيب الهم ع الباب',
+      'قول أهلًا، يمكن القعدة تحلو',
+      'النهارده للضحك… بكرة نشوف',
+      'متستعجلش، القهوة لسه سخنة'
+    ];
+    const dayNumber = Math.floor(Date.now() / 86400000);
+    document.getElementById('daily-saying').textContent = `جملة القهوة النهارده: ${dailySayings[dayNumber % dailySayings.length]}`;
+    const statsUrl = location.hostname.endsWith('github.io')
+      ? 'https://elhikimiki-chat.amiraelghanam101.chatgpt.site/api/stats'
+      : '/api/stats';
+    fetch(statsUrl, { cache: 'no-store' }).then(response => response.json()).then(({ active }) => {
+      document.getElementById('cafe-count').textContent = active ? `في القهوة دلوقتي: ${active}` : 'أول كرسي مستنيك';
+    }).catch(() => { document.getElementById('cafe-count').textContent = 'القهوة مفتوحة'; });
+
     const cat = document.querySelector('.sleeping-cat');
     const catSpeech = cat.querySelector('.cat-speech');
     let catSleepTimer;

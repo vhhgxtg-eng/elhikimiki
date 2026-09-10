@@ -63,6 +63,10 @@ function createChatServer(options = {}) {
       res.setHeader('X-Content-Type-Options', 'nosniff');
       res.setHeader('Referrer-Policy', 'same-origin');
       if (url.pathname.startsWith('/api/')) {
+        if (url.pathname === '/api/stats' && req.method === 'GET') {
+          sweep(); res.setHeader('Access-Control-Allow-Origin', '*');
+          return reply(200, { active: sessions.size });
+        }
         const origin = req.headers.origin;
         const ownOrigin = configuredOrigin || `http://${req.headers.host}`;
         if (origin && origin !== ownOrigin) fail('origin_not_allowed', 403);

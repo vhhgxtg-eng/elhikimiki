@@ -6,36 +6,58 @@
   <meta name="robots" content="noindex">
   <title>قعدة عشوائية | الحيكي ميكي</title>
   <link rel="icon" href="favicon.png">
-  <link rel="stylesheet" href="chat.css?v=cafe-experience-1">
+  <script>document.documentElement.dataset.theme=localStorage.getItem('cafe-theme')||((matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light')</script>
+  <link rel="stylesheet" href="chat.css?v=cafe-extras-1">
   <script src="chat.js" defer></script>
 </head>
 <body>
   <main class="chat-shell">
     <header class="chat-header">
-      <a href="index.html" class="brand" aria-label="الرجوع للرئيسية">الحيكي ميكي <span>☕</span></a>
-      <div class="header-actions"><button class="sound-toggle" id="sound-toggle" type="button" aria-pressed="false" aria-label="تشغيل المؤثرات الصوتية"><span aria-hidden="true">🔇</span> الصوت</button><span class="age-badge">١٨+ فقط</span></div>
+      <a href="index.html" class="brand" aria-label="الرجوع للرئيسية"><span class="brand-word">الحيكي</span><span class="brand-word">ميكي</span><span class="brand-cup" aria-hidden="true">☕</span></a>
+      <div class="header-actions">
+        <button class="theme-toggle" id="theme-toggle" type="button" aria-label="تغيير شكل القهوة"><span aria-hidden="true">🌙</span></button>
+        <span class="age-badge">١٨+ فقط</span>
+      </div>
     </header>
     <section id="gate" class="gate" aria-labelledby="gate-title">
-      <div class="cafe-stage" aria-hidden="true"><img class="gate-characters" src="images/couple-sitting.png.png" alt=""><div class="coffee-mark"><span class="steam steam-1"></span><span class="steam steam-2"></span><span class="steam steam-3"></span>☕</div></div>
-      <p class="eyebrow">كرسي فاضي… وحكاية جديدة</p>
-      <h1 id="gate-title">قعدة مع حد جديد</h1>
-      <p class="intro">شات كتابة بينك وبين شخص عشوائي.<br>من غير اسم حقيقي، ومن غير كاميرا.</p>
+      <div class="night-moon" aria-hidden="true">🌙</div>
+      <div class="cafe-stage" aria-hidden="true">
+        <img class="gate-characters" src="images/couple-sitting.png.png" alt="">
+        <img class="cafe-cup" src="images/real-tea-cup.png" alt="">
+      </div>
+      <p class="eyebrow">القهوة منوّرة</p>
+      <h1 id="gate-title" aria-label="الحيكي ميكي"><span class="comic-word word-one">الحيكي</span><span class="comic-word word-two">ميكي</span></h1>
+      <p class="intro">دردشة مصرية ع الرايق.</p>
       <form id="join-form">
-        <label class="check"><input id="adult" type="checkbox" required> <span>أنا عمري ١٨ سنة أو أكتر.</span></label>
-        <label class="check"><input id="rules" type="checkbox" required> <span>هحترم الطرف التاني، ومش هشارك محتوى جنسي أو تهديدات أو بيانات شخصية.</span></label>
-        <button class="primary" id="join" type="submit">يلا نقعد <span aria-hidden="true">←</span></button>
+        <label class="check"><input id="adult" type="checkbox" required> <span>أنا معدّي ١٨ سنة.</span></label>
+        <label class="check"><input id="rules" type="checkbox" required> <span>هتكلم باحترام ومش هشارك حاجة مؤذية أو بيانات شخصية.</span></label>
+        <button class="primary whatsapp-join" id="join" type="submit"><span class="heiky-face" aria-hidden="true"><img src="images/heiky-meiky-final.png" alt=""></span> ابدأ الشات</button>
       </form>
-      <p class="privacy">الكلام مش بيظهر لزوار تانيين. المحادثة بتنتهي لما حد يمشي، ومش بتتحفظ في سجل ترجع له.</p>
+      <p class="privacy">قعدتكم خاصة ومش بتتسجل.</p>
       <p id="gate-error" class="error" role="alert"></p>
     </section>
     <section id="conversation" class="conversation" hidden aria-label="المحادثة">
       <div class="room-header">
-        <div><span class="status-dot" id="status-dot"></span><strong id="status" role="status">بندور على حد متاح…</strong><p id="hint">أول ما حد يدخل، القعدة تبدأ.</p></div>
+        <div class="room-identity"><span class="room-avatar" aria-hidden="true"><img src="images/heiky-meiky-final.png" alt=""></span><div><span class="status-dot" id="status-dot"></span><strong id="status" role="status">بندور على حد متاح…</strong><p id="hint">أول ما حد يدخل، القعدة تبدأ.</p></div></div>
         <button class="quiet" id="end" type="button">إنهاء</button>
       </div>
-      <div id="waiting-panel" class="waiting-panel" role="status" aria-live="polite"><div class="waiting-cup" aria-hidden="true"><span></span><span></span><span></span>☕</div><strong>بنجهّزلك كرسي في القهوة…</strong><p>بندور على شخص متاح</p><small id="waiting-time">ثواني ونبدأ</small><div class="waiting-dots" aria-hidden="true"><i></i><i></i><i></i></div></div><div id="messages" class="messages" role="log" aria-live="polite" aria-label="رسائل المحادثة"></div>
+      <div id="waiting-panel" class="waiting-panel" role="status" aria-live="polite">
+        <div class="waiting-character"><img class="waiting-woman" src="images/waiting-woman.png" alt="الست بتدورلك على حد"><div class="waiting-bubble"><strong>اصبر يا ولا<br>بدورلك أهو</strong></div></div>
+        <small id="waiting-time">ثواني ونبدأ</small>
+        <div class="waiting-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+      </div>
+      <div id="messages" class="messages" role="log" aria-live="polite" aria-label="رسائل المحادثة"></div>
       <p id="chat-error" class="chat-error" role="alert"></p>
       <form id="message-form" class="composer">
+        <button id="sticker-toggle" class="sticker-toggle" type="button" aria-label="فتح الستيكرز" aria-expanded="false" disabled>☺</button>
+        <div id="sticker-tray" class="sticker-tray" hidden>
+          <button type="button" data-sticker="genko" aria-label="ستيكر جننوا آدم كده"><img src="images/sticker-genko.jpg" alt=""></button>
+          <button type="button" data-sticker="gossip" aria-label="ستيكر سر"><img src="images/sticker-gossip.jpg" alt=""></button>
+          <button type="button" data-sticker="eh" aria-label="ستيكر نخ أنا عيل"><img src="images/sticker-eh.jpg" alt=""></button>
+          <button type="button" data-sticker="warrior" aria-label="ستيكر استراحة محارب"><img src="images/break-poster.jpg" alt=""></button>
+          <button type="button" data-sticker="saying" aria-label="ستيكر كلام قليل"><img src="images/wall-saying.jpg" alt=""></button>
+          <button type="button" data-sticker="tvface" aria-label="ستيكر وش التلفزيون"><img src="images/tv-comedy-face.jpg" alt=""></button>
+        </div>
         <label class="sr-only" for="message">رسالتك</label>
         <input id="message" maxlength="1000" autocomplete="off" placeholder="قول أهلًا…" disabled>
         <button id="send" class="primary" type="submit" disabled>إرسال</button>
@@ -56,5 +78,12 @@
       </form>
     </dialog>
   </main>
+  <div id="break-overlay" class="break-overlay" hidden role="status" aria-live="polite">
+    <figure class="break-card">
+      <img src="images/break-poster.jpg" alt="استراحة محارب">
+      <figcaption>استراحة محارب… وجايبلك قعدة تانية</figcaption>
+    </figure>
+  </div>
+  <div class="site-flies" aria-hidden="true"><span class="site-fly site-fly-1"><img src="images/real-fly.png" alt=""></span><span class="site-fly site-fly-2"><img src="images/real-fly.png" alt=""></span><span class="site-fly site-fly-3"><img src="images/real-fly.png" alt=""></span></div>
 </body>
 </html>

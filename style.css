@@ -927,20 +927,48 @@ button:hover {
 .is-angry .snore { visibility: hidden; }
 .is-angry .cat-art { animation-play-state: paused; }
 
-/* Comic title, entrance contact board, and three small passing flies. */
+/* Aged cafe wall, chalk contact note, and polished 3D title. */
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse at 22% 35%,transparent 0 14%,#2d170b1d 48%,transparent 54%),radial-gradient(ellipse at 82% 72%,transparent 0 18%,#2d170b16 46%,transparent 55%);mix-blend-mode:multiply}
+.wall-cracks{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.62}
+.wall-cracks i{position:absolute;height:2px;width:150px;background:linear-gradient(90deg,transparent,#2b180fbb 12%,#1d0e08 48%,transparent);transform-origin:0 50%;filter:drop-shadow(0 1px 0 #e6b56b66)}
+.wall-cracks i::before,.wall-cracks i::after{content:"";position:absolute;left:55%;top:0;width:62px;height:1px;background:linear-gradient(90deg,#27140dac,transparent);transform-origin:0 0}
+.wall-cracks i::before{transform:rotate(38deg)}.wall-cracks i::after{transform:rotate(-31deg)}
+.wall-cracks i:nth-child(1){top:30%;left:2%;transform:rotate(18deg)}.wall-cracks i:nth-child(2){top:52%;right:5%;transform:rotate(158deg);width:190px}.wall-cracks i:nth-child(3){top:78%;left:18%;transform:rotate(-12deg);width:120px}.wall-cracks i:nth-child(4){top:18%;right:20%;transform:rotate(112deg);width:90px}.wall-cracks i:nth-child(5){top:67%;right:32%;transform:rotate(194deg);width:110px}.wall-cracks i:nth-child(6){top:42%;left:34%;transform:rotate(73deg);width:75px}
+.chalk-note{position:fixed;right:34px;bottom:34px;z-index:3;width:290px;padding:8px 14px;color:#fff4d9;text-align:center;font-family:"Segoe Print","Comic Sans MS",cursive;font-size:21px;font-weight:700;line-height:1.45;transform:rotate(-4deg);text-shadow:1px 0 #fff8,0 1px #fff5,-1px 0 #3b2118;opacity:.9;filter:blur(.15px);pointer-events:none}
+.chalk-note::before,.chalk-note::after{content:"";position:absolute;height:2px;background:#fff2d8aa;border-radius:50%;filter:blur(.5px)}.chalk-note::before{width:88%;right:6%;top:0;transform:rotate(1deg)}.chalk-note::after{width:70%;right:18%;bottom:2px;transform:rotate(-2deg)}
+.chalk-note span,.chalk-note b{display:block}.chalk-note b{font-size:25px;letter-spacing:2px;margin-top:3px}
+.main-title span{color:#b5281c;background:linear-gradient(110deg,#8b1b14 18%,#ffe4a3 43%,#d8452d 52%,#8b1b14 73%);background-size:240% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 1px 0 #ffd98e,0 2px 0 #e69b42,0 4px 0 #7d1d17,0 7px 12px #2c130866;animation:mainTitleShine 4.2s ease-in-out infinite}
+@keyframes mainTitleShine{0%,30%{background-position:120% 0}70%,100%{background-position:-120% 0}}
+@media(max-width:800px){.chalk-note{right:8px;bottom:148px;width:190px;font-size:14px;line-height:1.35;transform:rotate(-5deg)}.chalk-note b{font-size:17px}.wall-cracks i{width:85px}.wall-cracks i:nth-child(2){width:110px}.wall-cracks i:nth-child(5),.wall-cracks i:nth-child(6){display:none}}
+@media(max-width:480px){.chalk-note{right:4px;bottom:130px;width:170px;font-size:13px}.chalk-note b{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.main-title span{animation:none}}
+
+/* Three small flies cross the public landing page at different heights and speeds. */
+.home-flies{position:fixed;inset:0;z-index:20;overflow:hidden;pointer-events:none}
+.home-fly{position:absolute;left:-28px;display:block;will-change:transform;animation:homeFlyAcross 22s linear infinite}
+.home-fly img{display:block;width:12px;height:12px;object-fit:contain;animation:homeFlyBuzz .12s steps(2,end) infinite}
+.home-fly-1{top:21%}.home-fly-2{top:54%;animation-duration:27s;animation-delay:-10s}.home-fly-3{top:77%;animation-duration:31s;animation-delay:-20s}
+.home-fly-2 img{width:10px;height:10px}.home-fly-3 img{width:8px;height:8px}
+@keyframes homeFlyAcross{0%,15%{opacity:0;transform:translate(-5vw,4px) rotate(6deg)}17%{opacity:.82}29%{transform:translate(18vw,25px) rotate(23deg)}43%{transform:translate(39vw,-17px) rotate(-19deg)}58%{transform:translate(58vw,30px) rotate(18deg)}72%{transform:translate(76vw,-14px) rotate(-21deg)}87%{opacity:.82;transform:translate(101vw,9px) rotate(13deg)}88%,100%{opacity:0;transform:translate(110vw,0) rotate(5deg)}}
+@keyframes homeFlyBuzz{0%{transform:translate(-1px,-1px) rotate(-8deg) scaleX(.9)}50%{transform:translate(1px,1px) rotate(8deg) scaleX(1.06)}100%{transform:translate(0,-1px) rotate(-5deg) scaleX(.92)}}
+@media(max-width:600px){.home-fly img{width:7px;height:7px}.home-fly-2 img{width:6px;height:6px}.home-fly-3 img{width:5px;height:5px}}
+@media(prefers-reduced-motion:reduce){.home-fly{animation:none}.home-fly img{animation:none}}
+
+/* Turn the contact copy into a proper battered cafe sign. */
+.chalk-note.contact-board{right:34px;bottom:28px;width:330px;padding:17px 27px 15px;color:#ffe09b;background:linear-gradient(174deg,#74392d,#9b5039 52%,#653027);border:5px solid #47231b;border-radius:6px;box-shadow:0 7px 0 #351914,0 12px 20px #29110552,inset 0 0 0 2px #c47a55;font-family:Tahoma,Arial,sans-serif;font-size:18px;font-weight:900;line-height:1.45;text-shadow:0 2px 0 #492219;filter:none;opacity:1;transform:rotate(-3deg)}
+.chalk-note.contact-board::before,.chalk-note.contact-board::after{top:10px;bottom:auto;width:10px;height:10px;border-radius:50%;background:#d99d62;border:2px solid #452219;box-shadow:inset 1px 1px 1px #ffe5a5;filter:none}.chalk-note.contact-board::before{right:10px}.chalk-note.contact-board::after{right:auto;left:10px}
+.chalk-note.contact-board b{font-size:28px;color:#ffe6ad;text-shadow:0 3px 0 #442018}
+@media(max-width:800px){.chalk-note.contact-board{right:50%;bottom:132px;width:min(88vw,420px);padding:13px 21px 12px;font-size:15px;transform:translateX(50%) rotate(-2deg)}.chalk-note.contact-board b{font-size:22px}}
+@media(max-width:480px){.chalk-note.contact-board{bottom:119px;font-size:14px}.chalk-note.contact-board b{font-size:20px}}
+
+/* Special comic lettering inspired by the supplied Egyptian comedy poster. */
 .main-title{gap:.12em;overflow:visible;padding:4px 8px 10px}
 .main-title .landing-word{display:inline-block;font-family:Tahoma,"Arial Rounded MT Bold",Arial,sans-serif;font-weight:1000;letter-spacing:-3px;color:#c32622;background:linear-gradient(105deg,#9e1718 0 36%,#ff4f69 43%,#fff0a8 48%,#e12c35 53%,#9e1718 68% 100%);background-size:280% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;-webkit-text-stroke:1.2px #641315;text-shadow:1px 2px 0 #ffcd72,2px 4px 0 #741417,4px 7px 0 #3b0c10,6px 10px 12px #2f11085c;animation:landingComicShine 4s ease-in-out infinite}
 .main-title .landing-word-1{transform:rotate(-2deg) translateY(3px)}
 .main-title .landing-word-2{transform:rotate(3deg) translateY(-2px);animation-delay:-.2s}
 @keyframes landingComicShine{0%,28%{background-position:130% 0}66%,100%{background-position:-130% 0}}
-.contact-board{position:absolute;right:50%;bottom:27px;z-index:8;width:min(520px,72vw);padding:16px 28px 14px;color:#ffe09b;background:linear-gradient(174deg,#74392d,#9b5039 52%,#653027);border:5px solid #47231b;border-radius:6px;box-shadow:0 7px 0 #351914,0 12px 20px #29110552,inset 0 0 0 2px #c47a55;font-family:Tahoma,Arial,sans-serif;font-size:19px;font-weight:900;line-height:1.45;text-align:center;text-shadow:0 2px 0 #492219;transform:translateX(50%) rotate(-2deg)}
-.contact-board::before,.contact-board::after{content:"";position:absolute;top:10px;width:10px;height:10px;border-radius:50%;background:#d99d62;border:2px solid #452219;box-shadow:inset 1px 1px 1px #ffe5a5}.contact-board::before{right:10px}.contact-board::after{left:10px}.contact-board span,.contact-board b{display:block}.contact-board b{font-size:29px;letter-spacing:2px;color:#ffe6ad;text-shadow:0 3px 0 #442018}
-.home-flies{position:fixed;inset:0;z-index:20;overflow:hidden;pointer-events:none}.home-fly{position:absolute;left:-28px;animation:homeFlyAcross 22s linear infinite}.home-fly img{display:block;width:12px;height:12px;object-fit:contain;animation:homeFlyBuzz .12s steps(2,end) infinite}.home-fly-1{top:21%}.home-fly-2{top:54%;animation-duration:27s;animation-delay:-10s}.home-fly-3{top:77%;animation-duration:31s;animation-delay:-20s}.home-fly-2 img{width:10px;height:10px}.home-fly-3 img{width:8px;height:8px}
-@keyframes homeFlyAcross{0%,15%{opacity:0;transform:translate(-5vw,4px) rotate(6deg)}17%{opacity:.82}29%{transform:translate(18vw,25px) rotate(23deg)}43%{transform:translate(39vw,-17px) rotate(-19deg)}58%{transform:translate(58vw,30px) rotate(18deg)}72%{transform:translate(76vw,-14px) rotate(-21deg)}87%{opacity:.82;transform:translate(101vw,9px) rotate(13deg)}88%,100%{opacity:0;transform:translate(110vw,0) rotate(5deg)}}
-@keyframes homeFlyBuzz{0%{transform:translate(-1px,-1px) rotate(-8deg)}50%{transform:translate(1px,1px) rotate(8deg)}100%{transform:translate(0,-1px) rotate(-5deg)}}
-@media(max-width:800px){.main-title .landing-word{letter-spacing:-2px;-webkit-text-stroke:.8px #641315}.contact-board{position:absolute;bottom:152px;width:min(88vw,440px);padding:12px 20px;font-size:15px}.contact-board b{font-size:22px}.home-fly img{width:7px;height:7px}.home-fly-2 img{width:6px;height:6px}.home-fly-3 img{width:5px;height:5px}}
-@media(max-width:480px){.contact-board{bottom:130px;font-size:14px}.contact-board b{font-size:20px}}
-@media(prefers-reduced-motion:reduce){.main-title .landing-word,.home-fly,.home-fly img{animation:none}}
+@media(max-width:800px){.main-title .landing-word{letter-spacing:-2px;-webkit-text-stroke:.8px #641315}}
+@media(prefers-reduced-motion:reduce){.main-title .landing-word{animation:none}}
 
 /* Old cafe television carrying the supplied comedy portrait. */
 .wall-tv{position:fixed;top:285px;left:26px;z-index:2;width:150px;padding:10px 27px 10px 10px;background:linear-gradient(145deg,#70401f,#3b1e10 58%,#8c552a);border:3px solid #251109;border-radius:16px;box-shadow:7px 10px 0 #2b130a88;transform:rotate(2deg);pointer-events:none}
@@ -959,6 +987,7 @@ button:hover {
 .wall-saying{position:fixed;top:300px;right:28px;z-index:2;width:132px;padding:6px;background:#3020a8;border:6px solid #442416;outline:2px solid #1f100b;border-radius:3px;box-shadow:7px 9px 0 #2b130a77;transform:rotate(-2.5deg);pointer-events:none}.wall-saying img{display:block;width:100%;height:auto;filter:saturate(.92) contrast(1.04)}
 @media(max-width:600px){.cafe-lights{top:4px;left:2vw;right:2vw;height:29px}.cafe-lights i{width:7px;height:10px;margin-top:7px}.cafe-lights i::before{left:2px;top:-7px;width:3px;height:7px}.wall-saying{top:365px;right:8px;width:82px;padding:3px;border-width:3px;outline-width:1px;box-shadow:4px 5px 0 #2b130a66}}
 @media(prefers-reduced-motion:reduce){.cafe-lights i{animation:none}}
+.cafe-live{width:min(380px,92%);margin:13px auto 16px;padding:9px 14px;color:#5c321f;background:#f3d895;border:2px solid #6d3b24;border-radius:8px;box-shadow:0 3px 0 #4a2619;transform:rotate(-.5deg);font-family:Tahoma,Arial,sans-serif;line-height:1.55}.cafe-live span,.cafe-live b{display:block}.cafe-live span{font-size:14px}.cafe-live b{margin-top:3px;color:#9e291f;font-size:15px}@media(max-width:600px){.cafe-live{margin-block:10px 13px;padding:7px 10px}.cafe-live span{font-size:12px}.cafe-live b{font-size:13px}}
 
 /* Wall-mounted realism pass: all decor belongs to the page, not the viewport. */
 .wall-gallery,.wall-cracks,.wall-tv,.wall-saying,.cafe-lights,.chalk-note.contact-board{position:absolute}

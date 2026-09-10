@@ -1,8 +1,27 @@
 (() => {
   const $ = id => document.getElementById(id);
-  let token = null, room = null, cursor = 0, pollTimer, busy = false, generation = 0, failures = 0;
+  let token = null, room = null, cursor = 0, pollTimer, busy = false, transitionBusy = false, generation = 0, failures = 0;
   let currentState = 'idle';
-  let waitingStarted = 0, waitingClock = null, soundEnabled = false, audioContext = null;
+  let waitingStarted = 0, waitingClock = null;
+  const stickers = { genko: 'images/sticker-genko.jpg', gossip: 'images/sticker-gossip.jpg', eh: 'images/sticker-eh.jpg', warrior: 'images/break-poster.jpg', saying: 'images/wall-saying.jpg', tvface: 'images/tv-comedy-face.jpg' };
+  const stickerToken = /^\[sticker:(genko|gossip|eh|warrior|saying|tvface)\]$/;
+  const cafeAliases = ['ابن المعلم', 'زبون الترابيزة', 'صاحب آخر شاي', 'وش القهوة', 'رايق الحارة', 'صاحب الفنجان'];
+  const breakPosters = [
+    ['images/break-poster.jpg', 'استراحة محارب… وجايبلك قعدة تانية'],
+    ['images/sticker-genko.jpg', 'جنّنوا آدم… والقعدة الجاية أهدى'],
+    ['images/wall-saying.jpg', 'كلام قليل… وقعدة جديدة كبيرة'],
+    ['images/tv-comedy-face.jpg', 'فاصل ونواصل مع شخص تاني']
+  ];
+  let peerAlias = 'صاحب الفنجان';
+  function playMatchChime() {
+    try {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const context = new AudioContext(), oscillator = context.createOscillator(), gain = context.createGain();
+      oscillator.type = 'sine'; oscillator.frequency.setValueAtTime(760, context.currentTime); oscillator.frequency.exponentialRampToValueAtTime(1040, context.currentTime + .12);
+      gain.gain.setValueAtTime(.0001, context.currentTime); gain.gain.exponentialRampToValueAtTime(.12, context.currentTime + .02); gain.gain.exponentialRampToValueAtTime(.0001, context.currentTime + .24);
+      oscillator.connect(gain).connect(context.destination); oscillator.start(); oscillator.stop(context.currentTime + .25); oscillator.onended = () => context.close();
+    } catch {}
+  }
   function updateWaitingClock() {
     if (!waitingStarted) return;
     const seconds = Math.floor((Date.now() - waitingStarted) / 1000);
@@ -13,18 +32,6 @@
     clearInterval(waitingClock); updateWaitingClock(); waitingClock = setInterval(updateWaitingClock, 1000);
   }
   function stopWaitingClock() { clearInterval(waitingClock); waitingClock = null; waitingStarted = 0; }
-  function playCafeChime() {
-    if (!soundEnabled) return;
-    audioContext ||= new (window.AudioContext || window.webkitAudioContext)();
-    const now = audioContext.currentTime;
-    [523.25, 659.25].forEach((frequency, index) => {
-      const oscillator = audioContext.createOscillator(); const gain = audioContext.createGain();
-      oscillator.type = 'sine'; oscillator.frequency.value = frequency;
-      gain.gain.setValueAtTime(0.0001, now + index * .12); gain.gain.exponentialRampToValueAtTime(.08, now + index * .12 + .02); gain.gain.exponentialRampToValueAtTime(.0001, now + index * .12 + .32);
-      oscillator.connect(gain).connect(audioContext.destination); oscillator.start(now + index * .12); oscillator.stop(now + index * .12 + .34);
-    });
-  }
-
   const errors = {
     slow_down: 'واحدة واحدة… استنى شوية وجرب تاني.',
     busy: 'القهوة زحمة دلوقتي، جرّب كمان شوية.',
@@ -32,6 +39,13 @@
     reporting_unavailable: 'الإبلاغ مش متاح حاليًا. تقدر تحظر الشخص وتنهي القعدة.',
     invalid_message: 'اكتب رسالة من حرف إلى ١٠٠٠ حرف.'
   };
+  function applyTheme(theme) {
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem('cafe-theme', theme);
+    const dark = theme === 'dark';
+    $('theme-toggle').querySelector('span').textContent = dark ? '☀️' : '🌙';
+    $('theme-toggle').setAttribute('aria-label', dark ? 'افتح القهوة الصبح' : 'افتح القهوة بالليل');
+  }
   async function api(route, data) {
     const response = await fetch(`/api/${route}`, {
       method: data === undefined ? 'GET' : 'POST',
@@ -48,15 +62,14 @@
   function display(value) {
     const changedRoom = room !== value.room;
     const changedState = currentState !== value.state;
-    if (changedRoom) { room = value.room; cursor = 0; $('message').value = ''; }
-    const previousState = currentState;
+    if (changedRoom) { room = value.room; cursor = 0; $('message').value = ''; if (value.room) peerAlias = cafeAliases[Math.floor(Math.random() * cafeAliases.length)]; }
     currentState = value.state;
     $('conversation').classList.toggle('waiting', currentState === 'waiting');
     $('conversation').classList.toggle('matched', currentState === 'matched');
     if (currentState === 'waiting') startWaitingClock(); else stopWaitingClock();
-    if (currentState === 'matched' && previousState !== 'matched') playCafeChime();
     const matched = currentState === 'matched';
-    $('message').disabled = $('send').disabled = !matched || busy;
+    if (changedState && matched) playMatchChime();
+    $('message').disabled = $('send').disabled = $('sticker-toggle').disabled = !matched || busy;
     $('block').disabled = $('report').disabled = !matched || busy;
     $('report').hidden = !value.reporting;
     $('status-dot').classList.toggle('connected', matched);
@@ -71,9 +84,17 @@
       $('messages').querySelector('.empty')?.remove();
       const nearBottom = $('messages').scrollHeight - $('messages').scrollTop - $('messages').clientHeight < 80;
       const item = document.createElement('div'); item.className = `message ${message.mine ? 'mine' : 'peer'}`;
-      const label = document.createElement('small'); label.textContent = message.mine ? 'أنت' : 'الطرف التاني';
-      const text = document.createElement('span'); text.dir = 'auto'; text.textContent = message.text;
-      item.append(label, text); $('messages').append(item); cursor = message.seq;
+      const label = document.createElement('small'); label.textContent = message.mine ? 'أنت' : peerAlias;
+      const stickerMatch = message.text.match(stickerToken);
+      if (stickerMatch) {
+        item.classList.add('sticker-message');
+        const sticker = document.createElement('img'); sticker.className = 'sent-sticker'; sticker.src = stickers[stickerMatch[1]]; sticker.alt = 'ستيكر مضحك';
+        item.append(label, sticker);
+      } else {
+        const text = document.createElement('span'); text.dir = 'auto'; text.textContent = message.text;
+        item.append(label, text);
+      }
+      $('messages').append(item); cursor = message.seq;
       while ($('messages').children.length > 200) $('messages').firstChild.remove();
       if (nearBottom || message.mine) $('messages').scrollTop = $('messages').scrollHeight;
     }
@@ -94,7 +115,7 @@
       $('send').disabled = $('message').disabled = true;
     } finally { if (version === generation) schedule(); }
   }
-  function reset() { stopWaitingClock(); generation++; clearTimeout(pollTimer); token = room = null; cursor = 0; currentState = 'idle'; busy = false; $('conversation').hidden = true; $('gate').hidden = false; $('join').disabled = false; $('report-dialog').close(); }
+  function reset() { stopWaitingClock(); generation++; clearTimeout(pollTimer); token = room = null; cursor = 0; currentState = 'idle'; busy = false; $('sticker-tray').hidden = true; $('conversation').hidden = true; $('gate').hidden = false; $('join').disabled = false; $('report-dialog').close(); }
   async function action(operation) {
     if (busy) return;
     busy = true; generation++; clearTimeout(pollTimer);
@@ -103,13 +124,22 @@
     catch (error) { $('chat-error').textContent = errors[error.message] || 'الاتصال مش مستقر. جرّب تاني.'; }
     finally { busy = false; if (token) { await poll(); } }
   }
-  $('sound-toggle').addEventListener('click', async () => {
-    soundEnabled = !soundEnabled;
-    $('sound-toggle').setAttribute('aria-pressed', String(soundEnabled));
-    $('sound-toggle').querySelector('span').textContent = soundEnabled ? '🔊' : '🔇';
-    $('sound-toggle').setAttribute('aria-label', soundEnabled ? 'إيقاف المؤثرات الصوتية' : 'تشغيل المؤثرات الصوتية');
-    if (soundEnabled) { audioContext ||= new (window.AudioContext || window.webkitAudioContext)(); await audioContext.resume(); playCafeChime(); }
-  });
+  async function withBreakPoster(operation) {
+    if (transitionBusy || busy) return;
+    transitionBusy = true;
+    const poster = breakPosters[Math.floor(Math.random() * breakPosters.length)];
+    $('break-overlay').querySelector('img').src = poster[0];
+    $('break-overlay').querySelector('figcaption').textContent = poster[1];
+    $('break-overlay').hidden = false;
+    try {
+      await Promise.all([action(operation), new Promise(resolve => setTimeout(resolve, 2600))]);
+    } finally {
+      $('break-overlay').hidden = true;
+      transitionBusy = false;
+    }
+  }
+  applyTheme(document.documentElement.dataset.theme || 'light');
+  $('theme-toggle').addEventListener('click', () => applyTheme(document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark'));
   $('join-form').addEventListener('submit', async event => {
     event.preventDefault(); if (busy || !$('adult').checked || !$('rules').checked) return;
     busy = true; $('join').disabled = true; $('gate-error').textContent = '';
@@ -121,12 +151,24 @@
     } catch { $('gate-error').textContent = 'الشات مش متاح دلوقتي. جرّب كمان شوية.'; }
     finally { busy = false; $('join').disabled = false; }
   });
-  $('next').addEventListener('click', () => action(async () => {
+  $('next').addEventListener('click', () => withBreakPoster(async () => {
     await api('leave', {}); cursor = 0; room = null; currentState = 'idle';
     display(await api('queue', {}));
   }));
-  $('end').addEventListener('click', () => action(async () => { await api('leave', {}); reset(); }));
+  $('end').addEventListener('click', () => withBreakPoster(async () => { await api('leave', {}); reset(); }));
   $('block').addEventListener('click', () => action(async () => { await api('block', { room }); display(await api('state')); }));
+  $('sticker-toggle').addEventListener('click', () => {
+    const opening = $('sticker-tray').hidden;
+    $('sticker-tray').hidden = !opening;
+    $('sticker-toggle').setAttribute('aria-expanded', String(opening));
+  });
+  $('sticker-tray').addEventListener('click', event => {
+    const button = event.target.closest('[data-sticker]');
+    if (!button || !room || busy || failures) return;
+    const sentRoom = room, text = `[sticker:${button.dataset.sticker}]`;
+    $('sticker-tray').hidden = true; $('sticker-toggle').setAttribute('aria-expanded', 'false');
+    action(() => api('message', { room: sentRoom, text, id: crypto.randomUUID() }));
+  });
   $('message-form').addEventListener('submit', event => {
     event.preventDefault(); const text = $('message').value.trim(); if (!text || !room || busy || failures) return;
     const sentRoom = room;
